@@ -121,7 +121,7 @@ class MetaHandler(APIModel):
 
         return cursor
 
-    def fetch_host_condition(self):
+    def fetch_host_condition(self, params):
         """
         获取Host接口的条件
         :param username: 用户名
@@ -131,6 +131,21 @@ class MetaHandler(APIModel):
         # 用户有权限的业务
         biz_id_name = CmdbHandler().biz_id_name({"action": constants.IamActionType.agent_view})
         biz_permission = list(biz_id_name.keys())
+
+        params = params or {}
+        bk_biz_ids = params.get("bk_biz_ids")
+        # 传入业务id列表的情况
+        if bk_biz_ids:
+            biz_permission = list(set(bk_biz_ids) & set(biz_id_name.keys()))
+
+        if not biz_permission:
+            return self.filter_empty_children(
+                [
+                    {"name": _("IP"), "id": "ip"},
+                    {"name": _("管控区域ID:IP"), "id": "bk_cloud_ip"},
+                    {"name": _("主机名称"), "id": "bk_host_name"},
+                ]
+            )
 
         bk_cloud_ids = set()
         os_types = set()
@@ -520,7 +535,7 @@ class MetaHandler(APIModel):
         """
 
         if category == "host":
-            return self.fetch_host_condition()
+            return self.fetch_host_condition(params=params)
         elif category == "job":
             return self.fetch_job_list_condition("job", params=params)
         elif category == "agent_job":

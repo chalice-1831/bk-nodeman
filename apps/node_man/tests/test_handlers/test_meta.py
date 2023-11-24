@@ -482,3 +482,39 @@ class TestMeta(testcase.CustomAPITestCase):
             sorted(created_by["name"] for created_by in created_by_info["children"]),
             ["test2", "test3", "test4", "test5"],
         )
+
+    @patch("apps.node_man.handlers.cmdb.CmdbHandler.cmdb_or_cache_biz", cmdb_or_cache_biz)
+    @patch("apps.node_man.handlers.cmdb.client_v2", MockClient)
+    def test_fetch_host_list_condition_no_permission(self, *args, **kwargs):
+        self.maxDiff = None
+        number = 100
+        host_to_create, _, _ = create_host(number)
+        process_to_create = []
+        for host in host_to_create:
+            process_to_create.append(
+                ProcessStatus(
+                    bk_host_id=host.bk_host_id,
+                    proc_type=const.ProcType.PLUGIN,
+                    version=f"{random.randint(11, 20)}",
+                    name=settings.HEAD_PLUGINS[random.randint(0, len(settings.HEAD_PLUGINS) - 1)],
+                    status="RUNNING",
+                )
+            )
+
+        # 验证不传业务ID的情况；即返回用户所有权限的筛选项key
+        result = MetaHandler().filter_condition("host", params={"bk_biz_ids": []})
+        self.assertEqual(len(result), 10)
+
+        # 验证传入没有的业务ID的情况
+        result = MetaHandler().filter_condition("host", params={"bk_biz_ids": [2, 4, 5]})
+        self.assertEqual(len(result), 3)
+        self.assertEqual(result[0], {"name": "IP", "id": "ip"})
+        self.assertEqual(result[1], {"name": "管控区域ID:IP", "id": "bk_cloud_ip"})
+        self.assertEqual(result[2], {"name": "主机名称", "id": "bk_host_name"})
+
+        # 验证传入部分业务ID的情况
+        result = MetaHandler().filter_condition("host", params={"bk_biz_ids": [27, 30, 31, 35]})
+        # 验证管控区域的数量
+        self.assertEqual(len(result[3].get("children")), 2)
+        # 验证agent版本数量
+        self.assertLessEqual(len(result[6].get("children")), 100)
