@@ -196,8 +196,8 @@ export default class PluginList extends Mixins(HeaderFilterMixins) {
     this.tableLoading = true;
     this.loadingDelay = true;
     this.getPluginFilter().then(async () => {
-      await this.getFilterData();
       await this.getStrategyTopo();
+      await this.getFilterData();
 
       const copyValue: ISearchItem[] = [];
       this.searchSelectValue.forEach((item) => {
@@ -257,28 +257,23 @@ export default class PluginList extends Mixins(HeaderFilterMixins) {
     if (initValue.length) {
       this.searchSelectValue.push(...initValue);
     }
-    Promise.all([this.getPluginFilter(), this.getStrategyTopo()]).then(([len, children]) => {
-      this.filterData.splice(len, 0, {
-        id: 'source_id',
-        name: window.i18n.t('部署策略'),
-        multiable: true,
-        children,
-      });
-    });
-    const params = this.hasOldRouteParams ? initParams as ISearchParams : this.getCommonParams();
-    if (this.$route.params.policyId) {
-      // 修正部署策略接口未加载完毕的错误筛选条件
-      const sourceConditions = params.conditions.find(item => item.key === 'source_id');
-      if (sourceConditions) {
-        sourceConditions.value = [this.$route.params.policyId];
+    this.getPluginFilter().then(async () => {
+      await this.getStrategyTopo();
+      const params = this.hasOldRouteParams ? initParams as ISearchParams : this.getCommonParams();
+      if (this.$route.params.policyId) {
+        // 修正部署策略接口未加载完毕的错误筛选条件
+        const sourceConditions = params.conditions.find(item => item.key === 'source_id');
+        if (sourceConditions) {
+          sourceConditions.value = [this.$route.params.policyId];
+        }
       }
-    }
-    const promiseList: Promise<any>[] = [
-      this.getFilterData(),
-      this.getHostList(params),
-    ];
-    await Promise.all(promiseList);
-    this.loading = false;
+      const promiseList: Promise<any>[] = [
+        this.getFilterData(),
+        this.getHostList(params),
+      ];
+      await Promise.all(promiseList);
+      this.loading = false;
+    });
   }
 
   // 拉取筛选条件 并 插入插件名称项
@@ -362,7 +357,7 @@ export default class PluginList extends Mixins(HeaderFilterMixins) {
       }
     });
     const filters = data.filter(item => !statusReg.test(item.id));
-    this.filterData.splice(this.filterData.length, 0, ...filters);
+    this.filterData.splice(0, this.filterData.length, ...filters);
     return filters.length;
   }
 
@@ -387,14 +382,17 @@ export default class PluginList extends Mixins(HeaderFilterMixins) {
       }
       return list;
     }, []);
+    const sourceItem = {
+      id: 'source_id',
+      name: window.i18n.t('部署策略'),
+      multiable: true,
+      children,
+    };
     const index = this.filterData.findIndex(item => item.id === 'source_id');
     if (index > -1) {
-      this.filterData.splice(index, 1, {
-        id: 'source_id',
-        name: window.i18n.t('部署策略'),
-        multiable: true,
-        children,
-      });
+      this.filterData.splice(index, 1, sourceItem);
+    } else {
+      this.filterData.splice(0, 0, sourceItem);
     }
     return children;
   }
