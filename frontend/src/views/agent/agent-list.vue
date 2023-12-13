@@ -1068,8 +1068,9 @@ export default class AgentList extends Mixins(pollMixin, TableHeaderMixins, auth
     if (this.selectedBiz.length) {
       Object.assign(param, { bk_biz_ids: this.selectedBiz });
     }
+    const optSearchKeys = ['version', 'bk_cloud_id'];
     const data = await AgentStore.getFilterCondition(param);
-    this.filterData.splice(0, this.filterData.length, ...data.map(item => (item.id === 'version'
+    this.filterData.splice(0, this.filterData.length, ...data.map(item => (optSearchKeys.includes(item.id)
       ? ({ ...item, showCheckAll: true, showSearch: true })
       : item)));
     return data;
