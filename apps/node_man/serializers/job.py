@@ -51,11 +51,18 @@ def set_agent_setup_info_to_attrs(attrs):
     # 如果开启 DHCP，安装 2.0 Agent，开启 AgentID 特性
     # 在执行模块根据主机接入点所属的 GSE 版本决定是否采用下列的 agent_setup_info
     name = ("gse_agent", "gse_proxy")[attrs["node_type"] == "PROXY"]
+    # attrs["agent_setup_info"]["name"] = name
+    # 处理重装类型setup_info结构
+    agent_setup_info = attrs.get("agent_setup_info", {})
+    global_settings_agent_version = models.GlobalSettings.get_config(
+        models.GlobalSettings.KeyEnum.GSE_AGENT2_VERSION.value, default="stable"
+    )
+
     attrs["agent_setup_info"] = {
         "name": name,
-        "version": models.GlobalSettings.get_config(
-            models.GlobalSettings.KeyEnum.GSE_AGENT2_VERSION.value, default="stable"
-        ),
+        "version": agent_setup_info.get("version") or global_settings_agent_version,
+        "choice_version_type": agent_setup_info.get("choice_version_type") or constants.AgentVersionType.UNIFIED.value,
+        "version_map_list": agent_setup_info.get("version_map_list", []),
     }
 
 
@@ -112,7 +119,6 @@ class InstallBaseSerializer(serializers.Serializer):
                 else:
                     sub_query.children.append(("inner_ipv6", _host["inner_ipv6"]))
                     ip_key = _host["inner_ipv6"]
-
                 cloud_ip_host_info_map[f"{_host['bk_cloud_id']}:{ip_key}"] = _host
                 query_params.children.append(sub_query)
 
@@ -252,10 +258,18 @@ class HostSerializer(InstallBaseSerializer):
         return attrs
 
 
+class AgentVersionSerializer(serializers.Serializer):
+    os_cpu_arch = serializers.CharField(label=_("系统CPU架构"))
+    version = serializers.CharField(label=_("Agent Version"))
+
+
 class AgentSetupInfoSerializer(serializers.Serializer):
     name = serializers.CharField(required=False, label="构件名称")
     # LEGACY 表示旧版本 Agent，仅做兼容
     version = serializers.CharField(required=False, label="构件版本", default=LEGACY)
+
+    choice_version_type = serializers.CharField(required=False, label=_("选择Agent Version类型"))
+    version_map_list = AgentVersionSerializer(required=False, many=True)
 
 
 class ScriptHook(serializers.Serializer):
@@ -371,6 +385,7 @@ class OperateHostSerializer(serializers.Serializer):
     inner_ip = serializers.IPAddressField(label=_("内网IP"), required=False, allow_blank=True, protocol="ipv4")
     inner_ipv6 = serializers.IPAddressField(label=_("内网IPv6"), required=False, allow_blank=True, protocol="ipv6")
     is_use_ap_map = serializers.BooleanField(label=_("是否使用映射接入点"), required=False, default=False)
+    agent_version = serializers.CharField(label=_("agent_version"), required=False)
 
     # 以下参数不需要用户传入
     is_need_inject_ap_id = serializers.BooleanField(label=_("是否需要注入ap_id到meta"), required=False, default=False)

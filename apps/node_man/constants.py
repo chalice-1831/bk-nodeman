@@ -1136,3 +1136,9 @@ class CommonExecutionSolutionStepType(EnhanceEnum):
     @classmethod
     def _get_member__alias_map(cls) -> Dict[Enum, str]:
         return {cls.DEPENDENCIES: _("依赖文件"), cls.COMMANDS: _("命令")}
+
+
+class AgentVersionType(EnhanceEnum):
+    UNIFIED = "unified"
+    BY_HOST = "by_host"
+    BY_SYSTEM_ARCH = "by_system_arch"

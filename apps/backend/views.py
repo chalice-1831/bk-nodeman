@@ -109,6 +109,49 @@ def get_gse_config(request):
     return HttpResponse(config)
 
 
+# @login_exempt
+# @csrf_exempt
+# def get_target_version(request):
+#     """
+#     @api {POST} /get_target_version/ 获取AgentVersion
+#     @apiName get_target_version
+#     @apiGroup subscription
+#     """
+#     data = json.loads(request.body)
+
+#     bk_cloud_id = int(data.get("bk_cloud_id"))
+#     inner_ip = data.get("inner_ip")
+#     token = data.get("token")
+#     cpu_arch = data.get("cpu_arch")
+
+#     decrypted_token = _decrypt_token(token)
+#     if inner_ip != decrypted_token["inner_ip"] or bk_cloud_id != decrypted_token["bk_cloud_id"]:
+#         err_msg = "token[{token}] 非法, 请求参数为: {data}, token解析为: {decrypted_token}".format(
+#             token=token, data=data, decrypted_token=decrypted_token
+#         )
+#         logger.error(err_msg)
+#         raise PermissionError(err_msg)
+
+#     subscription_id: int = models.SubscriptionInstanceRecord.objects.get(
+#         id=decrypted_token["inst_id"]
+#     ).subscription_id
+#     # 安装 Agent step 只会有一个，如后续需要扩展，在 token 里补充 subscription_step_id
+#     sub_step_obj: models.SubscriptionStep = models.SubscriptionStep.objects.filter(
+#         subscription_id=subscription_id
+#     ).first()
+
+#     host = Host.objects.get(bk_host_id=decrypted_token["bk_host_id"])
+#     ap_id_obj_map: Dict[int, models.AccessPoint] = models.AccessPoint.ap_id_obj_map()
+#     host_ap: models.AccessPoint = ap_id_obj_map[int(decrypted_token["host_ap_id"])]
+#     agent_step_adapter: AgentStepAdapter = AgentStepAdapter(
+#         subscription_step=sub_step_obj, gse_version=host_ap.gse_version
+#     )
+
+#     agent_setup_info: AgentSetupInfo = agent_step_adapter.get_host_setup_info(host)
+
+#     return HttpResponse(agent_setup_info.version)
+
+
 @login_exempt
 @csrf_exempt
 def report_log(request):

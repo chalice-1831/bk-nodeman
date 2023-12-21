@@ -23,8 +23,9 @@ from apps.backend import exceptions
 from apps.backend.agent.config_parser import GseConfigParser
 from apps.core.files import core_files_constants
 from apps.core.files.storage import get_storage
-from apps.core.tag.constants import AGENT_NAME_TARGET_ID_MAP, TargetType
+from apps.core.tag.constants import TargetType
 from apps.core.tag.handlers import TagHandler
+from apps.core.tag.targets import AgentTargetHelper
 from apps.node_man import constants, models
 from apps.utils import cache, files
 
@@ -499,11 +500,12 @@ class BaseArtifactBuilder(abc.ABC):
         :param artifact_meta_info:
         :return:
         """
+        agent_name_target_id_map: typing.Dict[str, int] = AgentTargetHelper.get_agent_name_target_id_map()
         for tag in self.tags:
             TagHandler.publish_tag_version(
                 name=tag,
                 target_type=TargetType.AGENT.value,
-                target_id=AGENT_NAME_TARGET_ID_MAP[self.NAME],
+                target_id=agent_name_target_id_map[self.NAME],
                 target_version=artifact_meta_info["version"],
             )
             logger.info(
