@@ -16,7 +16,10 @@ from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 
-from apps.backend.subscription.steps.agent_adapter.adapter import LEGACY
+from apps.backend.subscription.steps.agent_adapter.adapter import (
+    LEGACY,
+    AgentVersionSerializer,
+)
 from apps.core.gray.constants import INSTALL_OTHER_AGENT_AP_ID_OFFSET
 from apps.core.gray.handlers import GrayHandler
 from apps.core.gray.tools import GrayTools
@@ -258,17 +261,14 @@ class HostSerializer(InstallBaseSerializer):
         return attrs
 
 
-class AgentVersionSerializer(serializers.Serializer):
-    os_cpu_arch = serializers.CharField(label=_("系统CPU架构"))
-    version = serializers.CharField(label=_("Agent Version"))
-
-
 class AgentSetupInfoSerializer(serializers.Serializer):
     name = serializers.CharField(required=False, label="构件名称")
     # LEGACY 表示旧版本 Agent，仅做兼容
     version = serializers.CharField(required=False, label="构件版本", default=LEGACY)
 
-    choice_version_type = serializers.CharField(required=False, label=_("选择Agent Version类型"))
+    choice_version_type = serializers.ChoiceField(
+        required=False, choices=constants.AgentVersionType.list_choices(), label=_("选择Agent Version类型")
+    )
     version_map_list = AgentVersionSerializer(required=False, many=True)
 
 

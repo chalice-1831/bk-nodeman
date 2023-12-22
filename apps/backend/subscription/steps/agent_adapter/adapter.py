@@ -38,7 +38,8 @@ LEGACY = "legacy"
 
 
 class AgentVersionSerializer(serializers.Serializer):
-    os_cpu_arch = serializers.CharField(label="系统CPU架构")
+    os_cpu_arch = serializers.CharField(label="系统CPU架构", required=False)
+    bk_host_id = serializers.IntegerField(label="主机ID", required=False)
     version = serializers.CharField(label="Agent Version")
 
 
@@ -47,7 +48,9 @@ class AgentStepConfigSerializer(serializers.Serializer):
     # LEGACY 表示旧版本 Agent，仅做兼容
     version = serializers.CharField(required=False, label="构件版本", default=LEGACY)
     job_type = serializers.ChoiceField(required=True, choices=constants.JOB_TUPLE)
-    choice_version_type = serializers.CharField(required=False, label="选择Agent Version类型")
+    choice_version_type = serializers.ChoiceField(
+        required=False, choices=constants.AgentVersionType.list_choices(), label="选择Agent Version类型"
+    )
     version_map_list = AgentVersionSerializer(many=True)
 
 
@@ -179,7 +182,6 @@ class AgentStepAdapter:
     def get_host_setup_info(self, host: models.Host) -> base.AgentSetupInfo:
         """
         获取 Agent 设置信息
-        TODO 后续如需支持多版本，该方法改造为 `get_host_setup_info`，根据维度进行缓存，参考 _config_handler_cache
         :return:
         """
         # 如果版本号匹配到标签名称，取对应标签下的真实版本号，否则取原来的版本号
@@ -196,11 +198,6 @@ class AgentStepAdapter:
                 )
             elif self.config["choice_version_type"] == constants.AgentVersionType.BY_SYSTEM_ARCH.value:
                 # TODO 按系统架构维度, 当前只支持按系统，后续需求完善按系统架构
-                # os_cpu_arch_version_map: typing.Dict[str, str] = {
-                #     versiom_map["os_cpu_arch"]: versiom_map["version"] for versiom_map in version_map_list
-                # }
-                # host_os_cpu_arch_key: str = f"{host.os_type.lower()}_{cpu_arch}"
-                # agent_version: str = os_cpu_arch_version_map[host_os_cpu_arch_key]
                 os_cpu_arch_version_list: typing.List[str] = [
                     versiom_map["version"]
                     for versiom_map in self.config["version_map_list"]
