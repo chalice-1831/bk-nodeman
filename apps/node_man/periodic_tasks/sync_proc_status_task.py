@@ -24,6 +24,8 @@ from apps.node_man.periodic_tasks.utils import query_bk_biz_ids
 from apps.utils.periodic_task import calculate_countdown
 from common.log import logger
 
+# 通过定时任务 sync_proc_status_periodic_task 定期同步节点插件的状态信息，包括插件是否运行、版本号、自动化状态等。
+# 通过 update_or_create_proc_status 函数实现具体的插件状态更新逻辑，包括获取主机信息、调用 GSE API 获取插件状态、更新数据库中的插件状态信息等。
 
 @task(queue="default", ignore_result=True)
 def update_or_create_proc_status(
@@ -31,7 +33,7 @@ def update_or_create_proc_status(
     host_queryset: QuerySet,
     proc_names: typing.Optional[typing.List[str]] = None,
 ):
-
+    # 获取需要更新的主机信息
     hosts: typing.List[typing.Dict[str, typing.Any]] = list(
         host_queryset.values("bk_host_id", "bk_agent_id", "bk_cloud_id", "inner_ip", "inner_ipv6", "ap_id", "bk_biz_id")
     )
@@ -44,6 +46,7 @@ def update_or_create_proc_status(
         f"start Host ID -> {hosts[0]['bk_host_id']}, count -> {len(hosts)}"
     )
 
+    # 获取需要更新的插件信息
     if proc_names is None:
         proc_names = tools.PluginV2Tools.fetch_head_plugins()
 
@@ -52,9 +55,13 @@ def update_or_create_proc_status(
     # 需要区分 GSE 版本，(区分方式：灰度业务 or 灰度接入点) -> 使用 V2 API，其他情况 -> 使用 V1 API
     gse_version__query_hosts_map: typing.Dict[str, typing.List[typing.Dict]] = defaultdict(list)
     for host in hosts:
+        # 获取当前主机应使用的 GSE VERSION
         gse_version = gray_tools_instance.get_host_ap_gse_version(host["bk_biz_id"], host["ap_id"])
+        # 获取 Agent 唯一标识
         agent_id = get_gse_api_helper(gse_version).get_agent_id(host)
+        # 保存 host_id 和 agent_id 的映射表
         agent_id__host_id_map[agent_id] = host["bk_host_id"]
+        # 将主机信息按照 GSE 版本进行分组
         gse_version__query_hosts_map[gse_version].append(
             {
                 "ip": host["inner_ip"] or host["inner_ipv6"],
@@ -70,6 +77,7 @@ def update_or_create_proc_status(
         agent_id__readable_proc_status_map: typing.Dict[str, typing.Dict[str, typing.Any]] = {}
         for gse_version, query_hosts in gse_version__query_hosts_map.items():
             gse_api_helper = get_gse_api_helper(gse_version)
+            # 通过接口获取进程状态信息
             agent_id__readable_proc_status_map.update(
                 gse_api_helper.list_proc_state(
                     namespace=constants.GSE_NAMESPACE,
@@ -80,6 +88,7 @@ def update_or_create_proc_status(
                 )
             )
 
+        # 查询数据库中的进程状态信息
         process_status_infos = ProcessStatus.objects.filter(
             name=proc_name,
             bk_host_id__in=agent_id__host_id_map.values(),
@@ -135,7 +144,7 @@ def update_or_create_proc_status(
                     not_need_to_be_updated_process_status_count += 1
                     continue
 
-                # need update
+                # 需要更新
                 obj = ProcessStatus(
                     pk=db_proc_status_info["id"],
                     status=readable_proc_status["status"],
@@ -144,7 +153,7 @@ def update_or_create_proc_status(
                 )
                 to_be_updated_process_status_objs.append(obj)
             else:
-                # need create
+                # 需要创建
                 obj = ProcessStatus(
                     status=readable_proc_status["status"],
                     version=readable_proc_status["version"],
