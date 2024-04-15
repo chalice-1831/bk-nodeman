@@ -18,11 +18,7 @@ get_cpu_arch "uname -p" || get_cpu_arch "uname -m" || fail get_cpu_arch "Failed 
 rm -rf /opt/nginx-portable/;
 rm -rf /opt/py36/;
 
-if [[ "${CPU_ARCH}" =~ "aarch" ]]; then
-    tar xvf %(nginx_path)s/py36-${CPU_ARCH}.tgz -C /opt;
-else
-    tar xvf %(nginx_path)s/py36.tgz -C /opt;
-fi
+tar xvf %(nginx_path)s/py36-${CPU_ARCH}.tgz -C /opt;
 
 tar xvf %(nginx_path)s/nginx-portable-${CPU_ARCH}.tgz -C /opt;
 
