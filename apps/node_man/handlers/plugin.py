@@ -285,6 +285,23 @@ class PluginHandler(APIModel):
                 }
             )
 
+        head_plugins = tools.PluginV2Tools.fetch_head_plugins()
+        host_uninstall_plugin = defaultdict(list)
+        for host_id, plugins in host_plugin.items():
+            installed_plugin_names = set(plugin["name"] for plugin in plugins)
+            host_uninstall_plugin[host_id] = list(set(head_plugins) - installed_plugin_names)
+
+        for host_id, uninstall_plugins in host_uninstall_plugin.items():
+            for plugin_name in uninstall_plugins:
+                host_plugin[host_id].append(
+                    {
+                        "name": plugin_name,
+                        "status": const.ProcStateType.NOT_INSTALLED,
+                        "version": "--",
+                        "host_id": host_id,
+                    }
+                )
+
         ap_id_obj_map = AccessPoint.ap_id_obj_map()
 
         # 汇总
