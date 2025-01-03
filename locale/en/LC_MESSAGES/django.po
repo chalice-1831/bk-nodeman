@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 12:02+0800\n"
+"POT-Creation-Date: 2026-01-15 14:08+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,8 +72,8 @@ msgstr "The Agent required to build Proxy does not exist bin path"
 msgid ""
 "构建 Proxy 所需二进制 [{svr_exe}] 不存在：svr_exe_path -> {svr_exe_path}"
 msgstr ""
-"The binary [{svr_exe}] required to build proxy does not exist: svr_exe_path "
-"-> {svr_exe_path}"
+"The binary [{svr_exe}] required to build proxy does not exist: svr_exe_path -"
+"> {svr_exe_path}"
 
 #: apps/backend/agent/manager.py:97
 msgid "卸载Agent"
@@ -342,8 +342,8 @@ msgstr "Please check whether the egress IP is correct or the policy is enabled"
 #: apps/backend/components/collections/agent_new/check_policy_gse_to_proxy.py:99
 #, python-brace-format
 msgid ""
-"请确保 GSE File Server 公网IP（{file_endpoints}）到 Proxy 出口IP"
-"（{proxy_outer_ip}）的 {port_polices} 访问策略正常。\n"
+"请确保 GSE File Server 公网IP（{file_endpoints}）到 Proxy 出口"
+"IP（{proxy_outer_ip}）的 {port_polices} 访问策略正常。\n"
 "另外请注意：\n"
 "1. 可执行 curl ipinfo.io 确认「出口IP」\n"
 "2. 不支持多台 Proxy 使用同一个「出口IP」\n"
@@ -398,9 +398,9 @@ msgid ""
 "主机所在「管控区域」 「{bk_cloud_name}」[{bk_cloud_id}] 下无 GSE 版本 -> "
 "{gse_version} 的接入点，请联系管理员添加映射关系"
 msgstr ""
-"There is no access point of GSE version -> {gse_version} under the \"BK-"
-"Net\" {bk_cloud_name} [{bk_cloud_id}] where the Host is located, please "
-"contact the administrator to add the mapping relationship"
+"There is no access point of GSE version -> {gse_version} under the \"BK-Net"
+"\" {bk_cloud_name} [{bk_cloud_id}] where the Host is located, please contact "
+"the administrator to add the mapping relationship"
 
 #: apps/backend/components/collections/agent_new/choose_access_point.py:429
 #, python-brace-format
@@ -575,6 +575,12 @@ msgstr "None"
 msgid "查询 GSE 超时"
 msgstr "Query GSE timed out"
 
+#: apps/backend/components/collections/agent_new/install.py:311
+#, fuzzy, python-brace-format
+#| msgid "安装通道（InstallChannel）"
+msgid "选择的安装通道为: {install_channel_name}"
+msgstr "InstallChannel"
+
 #: apps/backend/components/collections/agent_new/install.py:328
 msgid "等待手动执行安装命令"
 msgstr "Waiting for manual install command"
@@ -656,8 +662,8 @@ msgstr "{inner_ip} has been selected as the springboard for this installation"
 #: apps/backend/components/collections/agent_new/install.py:621
 #, python-brace-format
 msgid ""
-"作业任务ID为[{job_instance_id}]，点击跳转到<a href=\"{link}\" "
-"target=\"_blank\">[作业平台]</a>"
+"作业任务ID为[{job_instance_id}]，点击跳转到<a href=\"{link}\" target=\"_blank"
+"\">[作业平台]</a>"
 msgstr ""
 "The JOB task ID is [{job_instance_id}], click to jump to <a href=\"{link}\" "
 "target=\"_blank\">[Blueking JOB]</a>"
@@ -714,12 +720,12 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "{log}\n"
-"作业任务ID为 [{node_man_task_id}], 点击跳转到 <a href=\"{link}\" "
-"target=\"_blank\">[节点管理]</a>"
+"作业任务ID为 [{node_man_task_id}], 点击跳转到 <a href=\"{link}\" target="
+"\"_blank\">[节点管理]</a>"
 msgstr ""
 "{log}\n"
-"The NODEMAN task ID is [{node_man_task_id}], click to jump to <a "
-"href=\"{link}\" target=\"_blank\">[Blueking NODEMAN]</a>"
+"The NODEMAN task ID is [{node_man_task_id}], click to jump to <a href="
+"\"{link}\" target=\"_blank\">[Blueking NODEMAN]</a>"
 
 #: apps/backend/components/collections/agent_new/install_other_agent.py:145
 #: apps/backend/components/collections/agent_new/install_other_agent.py:156
@@ -735,10 +741,9 @@ msgid ""
 "管理]</a>根据提示完成操作.</span>"
 msgstr ""
 "{log}\n"
-"Waiting for manual installation. The NODEMAN task ID is "
-"[{node_man_task_id}],click to jump to <a href=\"{link}\" "
-"target=\"_blank\">[Blueking NODEMAN]</a> follow the prompts to complete the "
-"operation."
+"Waiting for manual installation. The NODEMAN task ID is [{node_man_task_id}],"
+"click to jump to <a href=\"{link}\" target=\"_blank\">[Blueking NODEMAN]</a> "
+"follow the prompts to complete the operation."
 
 #: apps/backend/components/collections/agent_new/install_other_agent.py:195
 #, fuzzy
@@ -751,12 +756,12 @@ msgstr "Failed to install additional agent"
 #, python-brace-format
 msgid ""
 "{log}\n"
-"作业任务ID为 [{node_man_task_id}]，点击跳转到 <a href=\"{link}\" "
-"target=\"_blank\">[节点管理]</a> 查看详情"
+"作业任务ID为 [{node_man_task_id}]，点击跳转到 <a href=\"{link}\" target="
+"\"_blank\">[节点管理]</a> 查看详情"
 msgstr ""
 "{log}\n"
-"The NODEMAN task ID is [{node_man_task_id}], click to jump to <a "
-"href=\"{link}\" target=\"_blank\">[Blueking NODEMAN]</a>"
+"The NODEMAN task ID is [{node_man_task_id}], click to jump to <a href="
+"\"{link}\" target=\"_blank\">[Blueking NODEMAN]</a>"
 
 #: apps/backend/components/collections/agent_new/install_other_agent.py:222
 msgid "安装额外Agent失败"
@@ -773,7 +778,6 @@ msgid "安装额外Agent超时"
 msgstr "Install additional agent timeout"
 
 #: apps/backend/components/collections/agent_new/push_host_identifier.py:50
-#, python-brace-format
 msgid "推送主机身份的任务为: [{}]"
 msgstr "The task of pushing the host identify is: [{}]"
 
@@ -980,8 +984,8 @@ msgstr "Call Blueking Job"
 #, python-brace-format
 msgid ""
 "{log}\n"
-"作业任务ID为 [{job_instance_id}]，点击跳转到 <a href=\"{link}\" "
-"target=\"_blank\">[作业平台]</a>"
+"作业任务ID为 [{job_instance_id}]，点击跳转到 <a href=\"{link}\" target="
+"\"_blank\">[作业平台]</a>"
 msgstr ""
 "{log}\n"
 "The JOB task ID is [{job_instance_id}], click to jump to <a href=\"{link}\" "
@@ -1022,7 +1026,6 @@ msgstr ""
 "status or reinstall AGENT."
 
 #: apps/backend/components/collections/plugin.py:889
-#, python-brace-format
 msgid "主机[{}]在ip->[{}]上无可用端口"
 msgstr "Host [{}] has no available port on ip->[{}]"
 
@@ -1045,13 +1048,13 @@ msgid "GSE任务查无结果, {task_id}, {key}"
 msgstr "GSE task search no result, {task_id}, {key}"
 
 #: apps/backend/components/collections/plugin.py:1489
-#: apps/node_man/models.py:1889
+#: apps/node_man/models.py:1888
 msgid "策略"
 msgstr "Policy"
 
 #: apps/backend/components/collections/plugin.py:1489
 #: apps/backend/components/collections/plugin.py:1538
-#: apps/node_man/models.py:495
+#: apps/node_man/models.py:494
 msgid "订阅"
 msgstr "Subscribe"
 
@@ -1297,7 +1300,7 @@ msgstr ""
 "exist"
 
 #: apps/backend/healthz/checker/celery_checker.py:114
-#: apps/backend/healthz/checker/supervisor_checker.py:86
+#: apps/backend/healthz/checker/supervisor_checker.py:85
 msgid ", 进程启动时间小于10秒，请关注"
 msgstr ""
 ", The process startup time is less than 10 seconds, please pay attention"
@@ -1368,7 +1371,7 @@ msgstr ""
 "and has been forced to fail"
 
 #: apps/backend/plugin/handler.py:74 apps/backend/plugin/handler.py:87
-#: apps/backend/plugin/views.py:1292
+#: apps/backend/plugin/views.py:1332
 msgid "上传文件MD5校验失败，请确认重试"
 msgstr "Upload file MD5 verification failed, please confirm and try again"
 
@@ -1680,47 +1683,47 @@ msgstr ""
 "Error saving plugin package, expect to save to -> {package_target_path}, "
 "actually save to -> {storage_path}"
 
-#: apps/backend/plugin/views.py:113 apps/backend/plugin/views.py:915
+#: apps/backend/plugin/views.py:115 apps/backend/plugin/views.py:945
 msgid "找不到请求发布的文件，请确认后重试"
 msgstr "The requested file cannot be found, please confirm and try again"
 
-#: apps/backend/plugin/views.py:168
+#: apps/backend/plugin/views.py:172
 msgid "找不到请求的任务，请确认后重试"
 msgstr "The requested task could not be found, please confirm and try again"
 
-#: apps/backend/plugin/views.py:247
+#: apps/backend/plugin/views.py:255
 #, python-brace-format
 msgid "ID{ids}的插件包未启用，无法执行更改状态操作"
 msgstr ""
 "Plugin package for ID {ids} is not enabled to perform change state operation"
 
-#: apps/backend/plugin/views.py:728
+#: apps/backend/plugin/views.py:752
 msgid "调试任务准备中"
 msgstr "Debugging task in preparation"
 
-#: apps/backend/plugin/views.py:739
+#: apps/backend/plugin/views.py:763
 #, python-brace-format
 msgid " 开始{name} "
 msgstr "Start {name}"
 
-#: apps/backend/plugin/views.py:835 apps/backend/plugin/views.py:1339
+#: apps/backend/plugin/views.py:863 apps/backend/plugin/views.py:1379
 msgid "请求任务不存在，请确认后重试"
 msgstr "The requested task does not exist, please confirm and try again"
 
-#: apps/backend/plugin/views.py:1283 apps/backend/views.py:220
+#: apps/backend/plugin/views.py:1323 apps/backend/views.py:220
 #: apps/node_man/views/__init__.py:51
 #, python-brace-format
 msgid "请求参数异常 [{err}]，请确认后重试"
 msgstr ""
 "The request parameter is abnormal [{err}], please confirm and try again"
 
-#: apps/backend/plugin/views.py:1346
+#: apps/backend/plugin/views.py:1386
 msgid "下载安全校验失败"
 msgstr "Download security check failed"
 
-#: apps/backend/serializers/response.py:20 apps/node_man/models.py:905
-#: apps/node_man/models.py:1821 apps/node_man/models.py:2230
-#: apps/node_man/models.py:2274 apps/node_man/models.py:2452
+#: apps/backend/serializers/response.py:20 apps/node_man/models.py:904
+#: apps/node_man/models.py:1820 apps/node_man/models.py:2229
+#: apps/node_man/models.py:2273 apps/node_man/models.py:2451
 msgid "订阅ID"
 msgstr "Subscription ID"
 
@@ -1728,7 +1731,7 @@ msgstr "Subscription ID"
 #: apps/backend/serializers/response.py:31
 #: apps/backend/serializers/response.py:43
 #: apps/backend/serializers/response.py:70 apps/node_man/handlers/meta.py:254
-#: apps/node_man/handlers/meta.py:315 apps/node_man/models.py:2273
+#: apps/node_man/handlers/meta.py:315 apps/node_man/models.py:2272
 #: apps/node_man/serializers/debug.py:21 apps/node_man/serializers/job.py:69
 #: apps/node_man/tests/test_handlers/test_meta.py:460
 msgid "任务ID"
@@ -1958,8 +1961,8 @@ msgstr ""
 "Add subscription step [{step_id}] need to provide type & config, error "
 "message -> {err_msg}"
 
-#: apps/backend/subscription/serializers.py:74 apps/node_man/models.py:243
-#: apps/node_man/models.py:500 apps/node_man/models.py:932
+#: apps/backend/subscription/serializers.py:74 apps/node_man/models.py:242
+#: apps/node_man/models.py:499 apps/node_man/models.py:931
 #: apps/node_man/serializers/ap.py:93 apps/node_man/serializers/base.py:126
 #: apps/node_man/serializers/debug.py:25 apps/node_man/serializers/host.py:39
 #: apps/node_man/serializers/host.py:79 apps/node_man/serializers/job.py:165
@@ -1986,6 +1989,13 @@ msgstr "Operating system"
 #: apps/backend/subscription/serializers.py:111
 msgid "订阅范围包含Gse2.0灰度业务"
 msgstr "The subscription scope includes Gse2.0 grayscale business"
+
+#: apps/backend/subscription/serializers.py:116
+#: apps/backend/subscription/serializers.py:174
+#: apps/node_man/serializers/plugin_v2.py:216
+#, python-brace-format
+msgid "操作系统类型只能为{constants.OS_TUPLE}"
+msgstr ""
 
 #: apps/backend/subscription/serializers.py:300
 #, fuzzy
@@ -2133,7 +2143,6 @@ msgstr "Sync CMDB hosts"
 
 #: apps/backend/sync_task/serializers.py:29
 #: apps/node_man/serializers/sync_task.py:24
-#, python-brace-format
 msgid "不支持的任务名称: {}"
 msgstr "Unsupported task name: {}"
 
@@ -2221,22 +2230,22 @@ msgstr "Key description"
 msgid "密钥内容"
 msgstr "Key Content"
 
-#: apps/core/encrypt/models.py:26 apps/core/files/models.py:27
-#: apps/core/files/models.py:46 apps/node_man/models.py:253
-#: apps/node_man/models.py:299 apps/node_man/models.py:1636
-#: apps/node_man/models.py:1903 apps/node_man/models.py:2280
-#: apps/node_man/models.py:2438 apps/utils/orm.py:176
+#: apps/core/encrypt/models.py:26 apps/core/files/models.py:26
+#: apps/core/files/models.py:45 apps/node_man/models.py:252
+#: apps/node_man/models.py:298 apps/node_man/models.py:1635
+#: apps/node_man/models.py:1902 apps/node_man/models.py:2279
+#: apps/node_man/models.py:2437 apps/utils/orm.py:176
 msgid "更新时间"
 msgstr "Update time"
 
-#: apps/core/encrypt/models.py:27 apps/core/files/models.py:28
-#: apps/core/files/models.py:47 apps/node_man/models.py:298
-#: apps/node_man/models.py:1635 apps/node_man/models.py:1662
-#: apps/node_man/models.py:1754 apps/node_man/models.py:1904
-#: apps/node_man/models.py:2233 apps/node_man/models.py:2281
-#: apps/node_man/models.py:2418 apps/node_man/models.py:2439
-#: apps/node_man/models.py:2458 apps/node_man/models.py:2501
-#: apps/utils/orm.py:174 pipeline/engine/models/core.py:882
+#: apps/core/encrypt/models.py:27 apps/core/files/models.py:27
+#: apps/core/files/models.py:46 apps/node_man/models.py:297
+#: apps/node_man/models.py:1634 apps/node_man/models.py:1661
+#: apps/node_man/models.py:1753 apps/node_man/models.py:1903
+#: apps/node_man/models.py:2232 apps/node_man/models.py:2280
+#: apps/node_man/models.py:2417 apps/node_man/models.py:2438
+#: apps/node_man/models.py:2457 apps/node_man/models.py:2500
+#: apps/utils/orm.py:174 pipeline/engine/models/core.py:888
 #: pipeline/models.py:78 pipeline/models.py:275 pipeline/models.py:617
 msgid "创建时间"
 msgstr "Created at"
@@ -2351,9 +2360,9 @@ msgstr ""
 "Failed to register file source: bk_biz_id -> {bk_biz_id}, err_msg -> "
 "{err_msg}"
 
-#: apps/core/files/models.py:19 apps/core/tag/models.py:62
-#: apps/node_man/models.py:269 apps/node_man/models.py:1632
-#: apps/node_man/models.py:1896 apps/node_man/models.py:2577
+#: apps/core/files/models.py:18 apps/core/tag/models.py:62
+#: apps/node_man/models.py:268 apps/node_man/models.py:1631
+#: apps/node_man/models.py:1895 apps/node_man/models.py:2576
 #: apps/node_man/serializers/base.py:125 apps/node_man/serializers/cmdb.py:39
 #: apps/node_man/serializers/cmdb.py:44 apps/node_man/serializers/host.py:35
 #: apps/node_man/serializers/host.py:81 apps/node_man/serializers/host.py:101
@@ -2365,47 +2374,47 @@ msgstr ""
 msgid "业务ID"
 msgstr "Business ID"
 
-#: apps/core/files/models.py:20
+#: apps/core/files/models.py:19
 msgid "文件源存储类型"
 msgstr "File source storage type"
 
-#: apps/core/files/models.py:22
+#: apps/core/files/models.py:21
 msgid "凭证名称"
 msgstr "Credential name"
 
-#: apps/core/files/models.py:23
+#: apps/core/files/models.py:22
 msgid "凭证类型"
 msgstr "Credential type"
 
-#: apps/core/files/models.py:24
+#: apps/core/files/models.py:23
 msgid "凭证描述"
 msgstr "Credential description"
 
-#: apps/core/files/models.py:25 apps/core/files/models.py:38
+#: apps/core/files/models.py:24 apps/core/files/models.py:37
 msgid "凭证ID"
 msgstr "Credential ID"
 
-#: apps/core/files/models.py:31 apps/core/files/models.py:32
+#: apps/core/files/models.py:30 apps/core/files/models.py:31
 msgid "作业平台文件凭证"
 msgstr "Job platform file credentials"
 
-#: apps/core/files/models.py:39
+#: apps/core/files/models.py:38
 msgid "文件源ID"
 msgstr "File source ID"
 
-#: apps/core/files/models.py:41 apps/core/files/models.py:44
+#: apps/core/files/models.py:40 apps/core/files/models.py:43
 msgid "文件源标识"
 msgstr "File source ID"
 
-#: apps/core/files/models.py:42
+#: apps/core/files/models.py:41
 msgid "文件源别名"
 msgstr "File source alias"
 
-#: apps/core/files/models.py:43
+#: apps/core/files/models.py:42
 msgid "文件源接入参数"
 msgstr "File Source Access Parameters"
 
-#: apps/core/files/models.py:62 apps/core/files/models.py:63
+#: apps/core/files/models.py:61 apps/core/files/models.py:62
 msgid "作业平台文件源"
 msgstr "JOB file source"
 
@@ -2453,7 +2462,7 @@ msgstr "Successed Hosts"
 msgid "无bk_agent_id的主机"
 msgstr "No bk_agent_id hosts"
 
-#: apps/core/gray/tools.py:128
+#: apps/core/gray/tools.py:127
 msgid "请联系管理员配置GSE1.0-2.0接入点映射"
 msgstr ""
 "Please contact the administrator to configure GSE1.0-2.0 access point mapping"
@@ -2550,13 +2559,13 @@ msgstr "Node type ID"
 msgid "节点实例ID"
 msgstr "Node instance ID"
 
-#: apps/core/ipchooser/serializers/base.py:75 apps/node_man/models.py:274
+#: apps/core/ipchooser/serializers/base.py:75 apps/node_man/models.py:273
 #: apps/node_man/serializers/ap.py:89 apps/node_man/serializers/host.py:41
 #: apps/node_man/serializers/job.py:174 apps/node_man/serializers/job.py:394
 msgid "内网IP"
 msgstr "Intranet IP"
 
-#: apps/core/ipchooser/serializers/base.py:76 apps/node_man/models.py:279
+#: apps/core/ipchooser/serializers/base.py:76 apps/node_man/models.py:278
 #: apps/node_man/serializers/ap.py:90 apps/node_man/serializers/host.py:42
 #: apps/node_man/serializers/job.py:178 apps/node_man/serializers/job.py:395
 msgid "内网IPv6"
@@ -2569,7 +2578,7 @@ msgstr "Operating system type"
 #: apps/core/ipchooser/serializers/base.py:78
 #: apps/node_man/handlers/meta.py:158 apps/node_man/handlers/meta.py:209
 #: apps/node_man/handlers/meta.py:432 apps/node_man/handlers/meta.py:446
-#: apps/node_man/models.py:271
+#: apps/node_man/models.py:270
 msgid "主机名称"
 msgstr "Hostname"
 
@@ -2683,31 +2692,31 @@ msgstr "Restriction range restrictions"
 msgid "agent实时状态"
 msgstr "Agent status"
 
-#: apps/core/ipchooser/views.py:32
+#: apps/core/ipchooser/views.py:33
 msgid "批量获取含各节点主机数量的拓扑树"
 msgstr "Get the topology tree with the number of hosts on each node in batches"
 
-#: apps/core/ipchooser/views.py:42
+#: apps/core/ipchooser/views.py:45
 msgid "查询多个节点拓扑路径"
 msgstr "Query multiple node topology paths"
 
-#: apps/core/ipchooser/views.py:52
+#: apps/core/ipchooser/views.py:57
 msgid "根据多个拓扑节点与搜索条件批量分页查询所包含的主机信息"
 msgstr ""
 "The host information contained in batch pagination search in accordance with "
 "multiple topology nodes and search conditions"
 
-#: apps/core/ipchooser/views.py:70
+#: apps/core/ipchooser/views.py:77
 msgid "根据多个拓扑节点与搜索条件批量分页查询所包含的主机 ID 信息"
 msgstr ""
 "The host ID information contained in batch pagination search in accordance "
 "with multiple topology nodes and search conditions"
 
-#: apps/core/ipchooser/views.py:88
+#: apps/core/ipchooser/views.py:97
 msgid "获取多个拓扑节点的主机 Agent 状态统计信息"
 msgstr "Get host Agent status statistics for multiple topology nodes"
 
-#: apps/core/ipchooser/views.py:104
+#: apps/core/ipchooser/views.py:115
 msgid ""
 "根据用户手动输入的`IP`/`IPv6`/`主机名`/`host_id`等关键字信息获取真实存在的机"
 "器信息"
@@ -2715,7 +2724,7 @@ msgstr ""
 "Obtain real machine information based on keyword information such as `IP`/"
 "`IPv6`/`hostname`/`host_id` manually entered by the user"
 
-#: apps/core/ipchooser/views.py:122
+#: apps/core/ipchooser/views.py:135
 msgid "根据主机关键信息获取机器详情信息"
 msgstr "Obtain machine detailed information based on host keyword information"
 
@@ -2941,8 +2950,8 @@ msgstr "Component version"
 msgid "是否全部可见"
 msgstr "Is all visible"
 
-#: apps/core/tag/models.py:63 apps/node_man/models.py:533
-#: apps/node_man/models.py:1633
+#: apps/core/tag/models.py:63 apps/node_man/models.py:532
+#: apps/node_man/models.py:1632
 msgid "CMDB对象ID"
 msgstr "CMDB object ID"
 
@@ -3064,7 +3073,7 @@ msgid "S-mart应用仅支持正式环境部署！"
 msgstr "S-mart application only supports production environment deployment!"
 
 #: apps/node_man/constants.py:78 apps/node_man/handlers/cloud.py:108
-#: apps/node_man/models.py:804
+#: apps/node_man/models.py:803
 msgid "直连区域"
 msgstr "Direct Mode"
 
@@ -3210,8 +3219,8 @@ msgstr "Manual install"
 msgid "打包"
 msgstr "Packaging"
 
-#: apps/node_man/constants.py:321 apps/node_man/models.py:496
-#: apps/node_man/models.py:1888
+#: apps/node_man/constants.py:321 apps/node_man/models.py:495
+#: apps/node_man/models.py:1887
 msgid "调试"
 msgstr "Debug"
 
@@ -3446,7 +3455,7 @@ msgstr "Agent exception"
 msgid "上次已成功"
 msgstr "Last time was successful"
 
-#: apps/node_man/constants.py:797 apps/node_man/models.py:1498
+#: apps/node_man/constants.py:797 apps/node_man/models.py:1497
 msgid "任务失败"
 msgstr "Task failed"
 
@@ -3704,8 +3713,8 @@ msgstr "Resident process"
 msgid "单次执行进程"
 msgstr "Single-execution process"
 
-#: apps/node_man/constants.py:1074 pipeline/contrib/periodic_task/models.py:92
-#: pipeline/contrib/periodic_task/models.py:165
+#: apps/node_man/constants.py:1074 pipeline/contrib/periodic_task/models.py:113
+#: pipeline/contrib/periodic_task/models.py:195
 msgid "crontab"
 msgstr "crontab"
 
@@ -3718,7 +3727,7 @@ msgid "systemd"
 msgstr "systemd"
 
 #: apps/node_man/constants.py:1095 apps/node_man/constants.py:1128
-#: apps/node_man/models.py:1863
+#: apps/node_man/models.py:1862
 msgid "主机"
 msgstr "Host"
 
@@ -3745,7 +3754,7 @@ msgstr "IPv6"
 #: apps/node_man/constants.py:1149
 #, fuzzy
 #| msgid "检测 BT 分发策略（下发Py311包）"
-msgid "检测 BT 分发策略（下发Py36包）"
+msgid "检测 BT 分发策略（下发Py311包）"
 msgstr "Detect BT distribution strategy (distribute Py311 package)"
 
 #: apps/node_man/constants.py:1165
@@ -3842,13 +3851,13 @@ msgstr "LAN IPv6"
 
 #: apps/node_man/constants.py:1281 apps/node_man/handlers/meta.py:212
 #: apps/node_man/handlers/meta.py:358 apps/node_man/handlers/meta.py:457
-#: apps/node_man/models.py:283 apps/node_man/models.py:1666
+#: apps/node_man/models.py:282 apps/node_man/models.py:1665
 #: apps/node_man/serializers/job.py:181
 msgid "操作系统"
 msgstr "Operating system"
 
 #: apps/node_man/constants.py:1282 apps/node_man/handlers/meta.py:211
-#: apps/node_man/models.py:293
+#: apps/node_man/models.py:292
 msgid "安装通道"
 msgstr "Install channel"
 
@@ -3890,7 +3899,7 @@ msgid "传输限速"
 msgstr "Transfer rate limit"
 
 #: apps/node_man/constants.py:1293 apps/node_man/handlers/meta.py:217
-#: apps/node_man/handlers/meta.py:492 apps/node_man/models.py:272
+#: apps/node_man/handlers/meta.py:492 apps/node_man/models.py:271
 #: apps/node_man/serializers/job.py:167
 msgid "寻址方式"
 msgstr "Addressing mode"
@@ -4010,17 +4019,16 @@ msgid "可选"
 msgstr "Optional"
 
 #: apps/node_man/constants.py:1355
-#, python-brace-format
 msgid "与「{}」不能同时为空"
 msgstr "Cannot be empty at the same time as「{}」"
 
-#: apps/node_man/constants.py:1364 apps/node_man/models.py:248
-#: apps/node_man/models.py:581 apps/node_man/serializers/host.py:52
+#: apps/node_man/constants.py:1364 apps/node_man/models.py:247
+#: apps/node_man/models.py:580 apps/node_man/serializers/host.py:52
 #: apps/node_man/serializers/job.py:184
 msgid "密码"
 msgstr "Password"
 
-#: apps/node_man/constants.py:1364 apps/node_man/models.py:250
+#: apps/node_man/constants.py:1364 apps/node_man/models.py:249
 #: apps/node_man/serializers/job.py:186
 msgid "密钥"
 msgstr "Key"
@@ -4231,8 +4239,7 @@ msgid "管控区域名称不可重复"
 msgstr "BK-Net name cannot be repeated"
 
 #: apps/node_man/handlers/cloud.py:227 apps/node_man/handlers/policy.py:585
-#: apps/node_man/views/ap.py:266
-#, python-brace-format
+#: apps/node_man/views/ap.py:268
 msgid "权限中心创建关联权限失败: {}"
 msgstr "Permission Center failed to create associated permissions: {}"
 
@@ -4257,14 +4264,13 @@ msgstr ""
 "Please check whether the esb and corresponding component services are normal"
 
 #: apps/node_man/handlers/healthz/saas_healthz.py:114
-#: apps/node_man/serializers/job.py:70 pipeline/engine/models/core.py:876
+#: apps/node_man/serializers/job.py:70 pipeline/engine/models/core.py:882
 msgid "状态"
 msgstr "Status"
 
 #: apps/node_man/handlers/healthz/saas_healthz.py:177
 #: apps/node_man/handlers/healthz/saas_healthz.py:248
 #: apps/node_man/handlers/healthz/saas_healthz.py:319
-#, python-brace-format
 msgid "{} 不存在对应的测试用例"
 msgstr "{} does not have a corresponding test case"
 
@@ -4394,7 +4400,7 @@ msgstr "Install method"
 msgid "BT节点探测"
 msgstr "BT node detection"
 
-#: apps/node_man/handlers/meta.py:218 apps/node_man/models.py:300
+#: apps/node_man/handlers/meta.py:218 apps/node_man/models.py:299
 msgid "运维部门"
 msgstr "Ops department"
 
@@ -4428,12 +4434,11 @@ msgid "无版本"
 msgstr "No version"
 
 #: apps/node_man/handlers/meta.py:396 apps/node_man/handlers/meta.py:576
-#, python-brace-format
 msgid "{}状态"
 msgstr "{}status"
 
-#: apps/node_man/handlers/meta.py:448 apps/node_man/models.py:289
-#: apps/node_man/models.py:1898 apps/node_man/serializers/job.py:291
+#: apps/node_man/handlers/meta.py:448 apps/node_man/models.py:288
+#: apps/node_man/models.py:1897 apps/node_man/serializers/job.py:291
 #: apps/node_man/serializers/job.py:437 apps/node_man/serializers/plugin.py:247
 msgid "节点类型"
 msgstr "Node type"
@@ -4641,57 +4646,56 @@ msgstr ""
 "complete the relevant information"
 
 #: apps/node_man/handlers/validator.py:610
-#, python-brace-format
 msgid "不允许操作【管控区域不存在】的主机,「管控区域」id: {}"
 msgstr ""
 "Not allowed to operate the host of [BK-Net does not exist], \"BK-Net\" id: {}"
 
-#: apps/node_man/models.py:203
+#: apps/node_man/models.py:202
 msgid "键"
 msgstr "Key"
 
-#: apps/node_man/models.py:204
+#: apps/node_man/models.py:203
 msgid "值"
 msgstr "Value"
 
-#: apps/node_man/models.py:238 apps/node_man/models.py:239
+#: apps/node_man/models.py:237 apps/node_man/models.py:238
 msgid "配置表（GlobalSettings）"
 msgstr "Configuration Table (GlobalSettings)"
 
-#: apps/node_man/models.py:245 apps/node_man/serializers/host.py:51
+#: apps/node_man/models.py:244 apps/node_man/serializers/host.py:51
 #: apps/node_man/serializers/job.py:182
 msgid "认证类型"
 msgstr "Auth type"
 
-#: apps/node_man/models.py:247
+#: apps/node_man/models.py:246
 msgid "账户名"
 msgstr "Account name"
 
-#: apps/node_man/models.py:249 apps/node_man/serializers/job.py:185
+#: apps/node_man/models.py:248 apps/node_man/serializers/job.py:185
 msgid "端口"
 msgstr "Port"
 
-#: apps/node_man/models.py:251
+#: apps/node_man/models.py:250
 msgid "额外认证资料"
 msgstr "Additional credentials"
 
-#: apps/node_man/models.py:252
+#: apps/node_man/models.py:251
 msgid "保留天数"
 msgstr "Retention days"
 
-#: apps/node_man/models.py:256 apps/node_man/models.py:257
+#: apps/node_man/models.py:255 apps/node_man/models.py:256
 msgid "临时认证数据（IdentityData）"
 msgstr "Temporary IdentityData"
 
-#: apps/node_man/models.py:267
+#: apps/node_man/models.py:266
 msgid "CMDB主机ID"
 msgstr "CMDB host ID"
 
-#: apps/node_man/models.py:268
+#: apps/node_man/models.py:267
 msgid "AgentID"
 msgstr "AgentID"
 
-#: apps/node_man/models.py:270 apps/node_man/models.py:829
+#: apps/node_man/models.py:269 apps/node_man/models.py:828
 #: apps/node_man/serializers/host.py:23 apps/node_man/serializers/host.py:31
 #: apps/node_man/serializers/host.py:40
 #: apps/node_man/serializers/install_channel.py:22
@@ -4701,923 +4705,923 @@ msgstr "AgentID"
 msgid "管控区域ID"
 msgstr "BK-Net ID"
 
-#: apps/node_man/models.py:275 apps/node_man/serializers/ap.py:91
+#: apps/node_man/models.py:274 apps/node_man/serializers/ap.py:91
 #: apps/node_man/serializers/host.py:43 apps/node_man/serializers/job.py:175
 msgid "外网IP"
 msgstr "External IP"
 
-#: apps/node_man/models.py:276 apps/node_man/serializers/host.py:46
+#: apps/node_man/models.py:275 apps/node_man/serializers/host.py:46
 #: apps/node_man/serializers/job.py:176
 msgid "登录IP"
 msgstr "Login IP"
 
-#: apps/node_man/models.py:277 apps/node_man/serializers/host.py:47
+#: apps/node_man/models.py:276 apps/node_man/serializers/host.py:47
 #: apps/node_man/serializers/job.py:177
 msgid "数据IP"
 msgstr "Data IP"
 
-#: apps/node_man/models.py:280 apps/node_man/serializers/ap.py:92
+#: apps/node_man/models.py:279 apps/node_man/serializers/ap.py:92
 #: apps/node_man/serializers/host.py:44 apps/node_man/serializers/job.py:179
 msgid "外网IPv6"
 msgstr "External IPv6"
 
-#: apps/node_man/models.py:286 apps/node_man/models.py:1669
+#: apps/node_man/models.py:285 apps/node_man/models.py:1668
 msgid "CPU架构"
 msgstr "CPU Architecture"
 
-#: apps/node_man/models.py:288
+#: apps/node_man/models.py:287
 msgid "操作系统版本"
 msgstr "Operating system version"
 
-#: apps/node_man/models.py:290
+#: apps/node_man/models.py:289
 msgid "节点来源"
 msgstr "Node source"
 
-#: apps/node_man/models.py:291
+#: apps/node_man/models.py:290
 msgid "是否手动安装"
 msgstr "Is manual"
 
-#: apps/node_man/models.py:294 apps/node_man/models.py:790
+#: apps/node_man/models.py:293 apps/node_man/models.py:789
 #: apps/node_man/serializers/ap.py:37 apps/node_man/serializers/cloud.py:30
 #: apps/node_man/serializers/host.py:50 apps/node_man/serializers/job.py:172
 #: apps/node_man/serializers/job.py:392
 msgid "接入点ID"
 msgstr "Access Point ID"
 
-#: apps/node_man/models.py:295 apps/node_man/models.py:791
+#: apps/node_man/models.py:294 apps/node_man/models.py:790
 #, fuzzy
 msgid "GSE1.0接入点ID"
 msgstr "GSE 1.0 Access Point ID"
 
-#: apps/node_man/models.py:296 apps/node_man/models.py:831
+#: apps/node_man/models.py:295 apps/node_man/models.py:830
 #: apps/node_man/serializers/install_channel.py:32
 msgid "上游节点"
 msgstr "Upstream node"
 
-#: apps/node_man/models.py:302
+#: apps/node_man/models.py:301
 msgid "额外数据"
 msgstr "Extra data"
 
-#: apps/node_man/models.py:325
+#: apps/node_man/models.py:324
 #, python-brace-format
 msgid "bk_host_id={bk_host_id} 主机信息不存在"
 msgstr "bk_host_id={bk_host_id} host information does not exist"
 
-#: apps/node_man/models.py:345
+#: apps/node_man/models.py:344
 #, python-brace-format
 msgid "{bk_cloud_id}:{ip} 主机信息不存在"
 msgstr "{bk_cloud_id}:{ip} host information does not exist"
 
-#: apps/node_man/models.py:361
+#: apps/node_man/models.py:360
 msgid "主机所属「管控区域」不存在可用Proxy"
 msgstr ""
 "There is no available proxy in the \"BK-Net\" to which the host belongs"
 
-#: apps/node_man/models.py:411
+#: apps/node_man/models.py:410
 #, python-brace-format
 msgid "安装节点主机{inner_ip}不存在，请确认是否已安装AGENT"
 msgstr ""
 "The installation node host {inner_ip} does not exist, please confirm whether "
 "AGENT is installed"
 
-#: apps/node_man/models.py:478 apps/node_man/models.py:479
+#: apps/node_man/models.py:477 apps/node_man/models.py:478
 msgid "主机（Host）"
 msgstr "Host"
 
-#: apps/node_man/models.py:494
+#: apps/node_man/models.py:493
 msgid "默认"
 msgstr "Default"
 
-#: apps/node_man/models.py:501
+#: apps/node_man/models.py:500
 msgid "进程名称"
 msgstr "Process name"
 
-#: apps/node_man/models.py:503
+#: apps/node_man/models.py:502
 msgid "进程状态"
 msgstr "Process status"
 
-#: apps/node_man/models.py:510
+#: apps/node_man/models.py:509
 msgid "是否自动启动"
 msgstr "Whether to start automatically"
 
-#: apps/node_man/models.py:512
+#: apps/node_man/models.py:511
 msgid "进程版本"
 msgstr "Process version"
 
-#: apps/node_man/models.py:514
+#: apps/node_man/models.py:513
 msgid "进程类型"
 msgstr "Process type"
 
-#: apps/node_man/models.py:517
+#: apps/node_man/models.py:516
 msgid "配置文件"
 msgstr "Config file"
 
-#: apps/node_man/models.py:518
+#: apps/node_man/models.py:517
 msgid "监听IP"
 msgstr "Listening IP"
 
-#: apps/node_man/models.py:519
+#: apps/node_man/models.py:518
 msgid "监听端口"
 msgstr "Listening port"
 
-#: apps/node_man/models.py:521
+#: apps/node_man/models.py:520
 msgid "二进制文件所在路径"
 msgstr "Path to binary file"
 
-#: apps/node_man/models.py:522 apps/node_man/models.py:1293
+#: apps/node_man/models.py:521 apps/node_man/models.py:1292
 msgid "日志路径"
 msgstr "Log path"
 
-#: apps/node_man/models.py:523 apps/node_man/models.py:1294
+#: apps/node_man/models.py:522 apps/node_man/models.py:1293
 #: apps/node_man/serializers/host.py:57 apps/node_man/serializers/job.py:191
 msgid "数据文件路径"
 msgstr "Data file path"
 
-#: apps/node_man/models.py:524 apps/node_man/models.py:1295
+#: apps/node_man/models.py:523 apps/node_man/models.py:1294
 msgid "pid文件路径"
 msgstr "Pid file path"
 
-#: apps/node_man/models.py:526
+#: apps/node_man/models.py:525
 msgid "插件组ID"
 msgstr "Plugin Group ID"
 
-#: apps/node_man/models.py:528
+#: apps/node_man/models.py:527
 msgid "来源类型"
 msgstr "Source type"
 
-#: apps/node_man/models.py:530
+#: apps/node_man/models.py:529
 msgid "来源ID"
 msgstr "Source ID"
 
-#: apps/node_man/models.py:534
+#: apps/node_man/models.py:533
 msgid "是否是最新记录"
 msgstr "Is it the latest record"
 
-#: apps/node_man/models.py:564 apps/node_man/models.py:565
+#: apps/node_man/models.py:563 apps/node_man/models.py:564
 msgid "进程状态（ProcessStatus）"
 msgstr "ProcessStatus"
 
-#: apps/node_man/models.py:569 apps/node_man/serializers/ap.py:38
+#: apps/node_man/models.py:568 apps/node_man/serializers/ap.py:38
 msgid "接入点名称"
 msgstr "Access Point Name"
 
-#: apps/node_man/models.py:570 apps/node_man/serializers/ap.py:39
+#: apps/node_man/models.py:569 apps/node_man/serializers/ap.py:39
 msgid "接入点类型"
 msgstr "Access Point Type"
 
-#: apps/node_man/models.py:571 apps/node_man/serializers/ap.py:40
+#: apps/node_man/models.py:570 apps/node_man/serializers/ap.py:40
 msgid "区域id"
 msgstr "Area id"
 
-#: apps/node_man/models.py:572 apps/node_man/serializers/ap.py:41
+#: apps/node_man/models.py:571 apps/node_man/serializers/ap.py:41
 msgid "城市id"
 msgstr "City id"
 
-#: apps/node_man/models.py:574
+#: apps/node_man/models.py:573
 msgid "GSE 版本"
 msgstr "GSE Version"
 
-#: apps/node_man/models.py:576 apps/node_man/serializers/ap.py:42
+#: apps/node_man/models.py:575 apps/node_man/serializers/ap.py:42
 msgid "GSE BT文件服务器列表"
 msgstr "GSE BT file server list"
 
-#: apps/node_man/models.py:577 apps/node_man/serializers/ap.py:43
+#: apps/node_man/models.py:576 apps/node_man/serializers/ap.py:43
 msgid "GSE 数据服务器列表"
 msgstr "GSE Data Server List"
 
-#: apps/node_man/models.py:578 apps/node_man/serializers/ap.py:44
+#: apps/node_man/models.py:577 apps/node_man/serializers/ap.py:44
 msgid "GSE 任务服务器列表"
 msgstr "GSE Task Server List"
 
-#: apps/node_man/models.py:579 apps/node_man/serializers/ap.py:45
+#: apps/node_man/models.py:578 apps/node_man/serializers/ap.py:45
 msgid "ZK服务器列表"
 msgstr "ZK server list"
 
-#: apps/node_man/models.py:580 apps/node_man/serializers/ap.py:46
+#: apps/node_man/models.py:579 apps/node_man/serializers/ap.py:46
 #: apps/node_man/serializers/ap.py:112
 msgid "ZK账号"
 msgstr "ZK account"
 
-#: apps/node_man/models.py:582 apps/node_man/serializers/ap.py:47
+#: apps/node_man/models.py:581 apps/node_man/serializers/ap.py:47
 msgid "安装包内网地址"
 msgstr "Installation package intranet address"
 
-#: apps/node_man/models.py:583 apps/node_man/serializers/ap.py:48
+#: apps/node_man/models.py:582 apps/node_man/serializers/ap.py:48
 msgid "安装包外网地址"
 msgstr "Installation package external network address"
 
-#: apps/node_man/models.py:585
+#: apps/node_man/models.py:584
 msgid "Nginx路径"
 msgstr "Nginx path"
 
-#: apps/node_man/models.py:586 apps/node_man/serializers/ap.py:49
+#: apps/node_man/models.py:585 apps/node_man/serializers/ap.py:49
 msgid "Agent配置信息"
 msgstr "Agent configuration information"
 
-#: apps/node_man/models.py:587 apps/node_man/serializers/ap.py:50
+#: apps/node_man/models.py:586 apps/node_man/serializers/ap.py:50
 msgid "接入点状态"
 msgstr "Access Point Status"
 
-#: apps/node_man/models.py:588 apps/node_man/serializers/ap.py:51
+#: apps/node_man/models.py:587 apps/node_man/serializers/ap.py:51
 #: apps/node_man/serializers/ap.py:115
 msgid "接入点描述"
 msgstr "Access Point Description"
 
-#: apps/node_man/models.py:589 apps/node_man/models.py:2579
+#: apps/node_man/models.py:588 apps/node_man/models.py:2578
 #: apps/node_man/serializers/ap.py:52
 msgid "是否启用"
 msgstr "Enable"
 
-#: apps/node_man/models.py:590 apps/node_man/serializers/ap.py:53
+#: apps/node_man/models.py:589 apps/node_man/serializers/ap.py:53
 msgid "是否默认接入点，不可删除"
 msgstr "Is it the default access point, it cannot be deleted"
 
-#: apps/node_man/models.py:591 apps/node_man/serializers/ap.py:116
+#: apps/node_man/models.py:590 apps/node_man/serializers/ap.py:116
 msgid "接入点创建者"
 msgstr "Access Point Creator"
 
-#: apps/node_man/models.py:592
+#: apps/node_man/models.py:591
 msgid "GSE端口配置"
 msgstr "GSE port configuration"
 
-#: apps/node_man/models.py:593 apps/node_man/serializers/ap.py:54
+#: apps/node_man/models.py:592 apps/node_man/serializers/ap.py:54
 msgid "Proxy上的安装包"
 msgstr "Package on Proxy"
 
-#: apps/node_man/models.py:594 apps/node_man/serializers/ap.py:120
+#: apps/node_man/models.py:593 apps/node_man/serializers/ap.py:120
 msgid "节点管理外网回调地址"
 msgstr "Node management external network callback address"
 
-#: apps/node_man/models.py:595 apps/node_man/serializers/ap.py:121
+#: apps/node_man/models.py:594 apps/node_man/serializers/ap.py:121
 msgid "节点管理内网回调地址"
 msgstr "Node management intranet callback address"
 
-#: apps/node_man/models.py:596 apps/node_man/serializers/ap.py:56
+#: apps/node_man/models.py:595 apps/node_man/serializers/ap.py:56
 #: apps/node_man/serializers/ap.py:122
 #, fuzzy
 #| msgid "等待手动执行安装命令"
 msgid "是否使用sudo执行安装命令"
 msgstr "Waiting for manual install command"
 
-#: apps/node_man/models.py:626
+#: apps/node_man/models.py:625
 msgid "默认接入点不存在"
 msgstr "Default access point does not exist"
 
-#: apps/node_man/models.py:662
+#: apps/node_man/models.py:661
 #, python-brace-format
 msgid "回调地址请求失败，报错信息 -> {exc}"
 msgstr "Callback address request failed, error message -> {exc}"
 
-#: apps/node_man/models.py:664
+#: apps/node_man/models.py:663
 msgid "回调地址指向站点非节点管理后台"
 msgstr ""
 "The callback address points to the site's non-node management background"
 
-#: apps/node_man/models.py:693
+#: apps/node_man/models.py:692
 #, python-brace-format
 msgid "Ping {ip} 失败, {output}"
 msgstr "Ping {ip} failed, {output}"
 
-#: apps/node_man/models.py:695
+#: apps/node_man/models.py:694
 #, python-brace-format
 msgid "Ping {ip} 正常"
 msgstr "Ping {ip} OK"
 
-#: apps/node_man/models.py:707
+#: apps/node_man/models.py:706
 #, python-brace-format
 msgid "{download_url} 检测下载失败，目标地址没有 setup_agent.sh 文件"
 msgstr ""
 "{download_url} failed to detect download, the target address does not have a "
 "setup_agent.sh file"
 
-#: apps/node_man/models.py:715
+#: apps/node_man/models.py:714
 #, python-brace-format
 msgid "{download_url} 检测下载失败"
 msgstr "{download_url} failed to detect download"
 
-#: apps/node_man/models.py:722
+#: apps/node_man/models.py:721
 #, python-brace-format
 msgid "{download_url} 检测下载成功"
 msgstr "{download_url} detected successful download"
 
-#: apps/node_man/models.py:730
+#: apps/node_man/models.py:729
 #, python-brace-format
 msgid "回调地址 -> {url} 验证可达"
 msgstr "Callback address->{url} is verified to be reachable"
 
-#: apps/node_man/models.py:735
+#: apps/node_man/models.py:734
 #, python-brace-format
 msgid "回调地址 -> {url} 不正确：{err_msg}"
 msgstr "Callback address->{url} is incorrect: {err_msg}"
 
-#: apps/node_man/models.py:780 apps/node_man/models.py:781
+#: apps/node_man/models.py:779 apps/node_man/models.py:780
 msgid "接入点（AccessPoint）"
 msgstr "AccessPoint"
 
-#: apps/node_man/models.py:789 apps/node_man/serializers/cloud.py:29
+#: apps/node_man/models.py:788 apps/node_man/serializers/cloud.py:29
 msgid "云服务商"
 msgstr "Cloud provider"
 
-#: apps/node_man/models.py:792
+#: apps/node_man/models.py:791
 msgid "管控区域创建者"
 msgstr "BK-Net creator"
 
-#: apps/node_man/models.py:794
+#: apps/node_man/models.py:793
 msgid "是否可见"
 msgstr "Is visible"
 
-#: apps/node_man/models.py:795 apps/utils/orm.py:98 pipeline/models.py:284
+#: apps/node_man/models.py:794 apps/utils/orm.py:98 pipeline/models.py:284
 msgid "是否删除"
 msgstr "Delete"
 
-#: apps/node_man/models.py:813 apps/node_man/models.py:814
+#: apps/node_man/models.py:812 apps/node_man/models.py:813
 msgid "管控区域（BK-Net）"
 msgstr "BK-Net"
 
-#: apps/node_man/models.py:828
+#: apps/node_man/models.py:827
 msgid "名称"
 msgstr "Name"
 
-#: apps/node_man/models.py:830
+#: apps/node_man/models.py:829
 msgid "安装通道跳板机"
 msgstr "Install channel jumper"
 
-#: apps/node_man/models.py:832 apps/node_man/serializers/install_channel.py:33
+#: apps/node_man/models.py:831 apps/node_man/serializers/install_channel.py:33
 msgid "是否隐藏"
 msgstr "Is hidden"
 
-#: apps/node_man/models.py:889 apps/node_man/models.py:890
+#: apps/node_man/models.py:888 apps/node_man/models.py:889
 msgid "安装通道（InstallChannel）"
 msgstr "InstallChannel"
 
-#: apps/node_man/models.py:896 apps/node_man/models.py:1103
-#: apps/node_man/models.py:1905
+#: apps/node_man/models.py:895 apps/node_man/models.py:1102
+#: apps/node_man/models.py:1904
 msgid "操作人"
 msgstr "Operator"
 
-#: apps/node_man/models.py:897 apps/node_man/models.py:1902
+#: apps/node_man/models.py:896 apps/node_man/models.py:1901
 msgid "所属系统"
 msgstr "Owning system"
 
-#: apps/node_man/models.py:899
+#: apps/node_man/models.py:898
 msgid "作业类型"
 msgstr "Job type"
 
-#: apps/node_man/models.py:906
+#: apps/node_man/models.py:905
 msgid "任务ID列表"
 msgstr "Task id list"
 
-#: apps/node_man/models.py:907
+#: apps/node_man/models.py:906
 msgid "创建任务时间"
 msgstr "Task created time"
 
-#: apps/node_man/models.py:908
+#: apps/node_man/models.py:907
 msgid "任务结束时间"
 msgstr "Task end time"
 
-#: apps/node_man/models.py:910 apps/node_man/models.py:1512
-#: apps/node_man/models.py:2286 apps/node_man/models.py:2435
+#: apps/node_man/models.py:909 apps/node_man/models.py:1511
+#: apps/node_man/models.py:2285 apps/node_man/models.py:2434
 msgid "任务状态"
 msgstr "Task status"
 
-#: apps/node_man/models.py:916
+#: apps/node_man/models.py:915
 msgid "全局运行参数"
 msgstr "Global run parameters"
 
-#: apps/node_man/models.py:917
+#: apps/node_man/models.py:916
 msgid "任务统计信息"
 msgstr "Task statistics"
 
-#: apps/node_man/models.py:918 apps/node_man/models.py:1910
+#: apps/node_man/models.py:917 apps/node_man/models.py:1909
 msgid "业务范围"
 msgstr "Business Scope"
 
-#: apps/node_man/models.py:919
+#: apps/node_man/models.py:918
 msgid "发生错误的主机"
 msgstr "Bad host"
 
-#: apps/node_man/models.py:920 apps/node_man/models.py:2236
+#: apps/node_man/models.py:919 apps/node_man/models.py:2235
 msgid "是否为自动触发"
 msgstr "Is it auto-triggered"
 
-#: apps/node_man/models.py:923 apps/node_man/models.py:924
+#: apps/node_man/models.py:922 apps/node_man/models.py:923
 msgid "任务信息（Job）"
 msgstr "Job Information (Job)"
 
-#: apps/node_man/models.py:931
+#: apps/node_man/models.py:930
 msgid "作业ID"
 msgstr "Job ID"
 
-#: apps/node_man/models.py:933 apps/node_man/models.py:2275
-#: apps/node_man/models.py:2453 apps/node_man/serializers/iam.py:23
+#: apps/node_man/models.py:932 apps/node_man/models.py:2274
+#: apps/node_man/models.py:2452 apps/node_man/serializers/iam.py:23
 #: apps/node_man/serializers/plugin_v2.py:251
 #: pipeline/contrib/statistics/models.py:36
 #: pipeline/contrib/statistics/models.py:72 pipeline/models.py:611
 msgid "实例ID"
 msgstr "Instance ID"
 
-#: apps/node_man/models.py:934
+#: apps/node_man/models.py:933
 msgid "Pipeline节点ID"
 msgstr "Pipeline node ID"
 
-#: apps/node_man/models.py:936
+#: apps/node_man/models.py:935
 msgid "当前步骤"
 msgstr "Current step"
 
-#: apps/node_man/models.py:942 apps/node_man/models.py:943
+#: apps/node_man/models.py:941 apps/node_man/models.py:942
 msgid "任务详情（JobTask）"
 msgstr "JobTask"
 
-#: apps/node_man/models.py:952 apps/node_man/models.py:1629
-#: apps/node_man/models.py:1649
+#: apps/node_man/models.py:951 apps/node_man/models.py:1628
+#: apps/node_man/models.py:1648
 msgid "插件名"
 msgstr "Plugin name"
 
-#: apps/node_man/models.py:953
+#: apps/node_man/models.py:952
 msgid "插件描述"
 msgstr "Plugin Description"
 
-#: apps/node_man/models.py:954
+#: apps/node_man/models.py:953
 msgid "使用场景"
 msgstr "Use scenario"
 
-#: apps/node_man/models.py:955
+#: apps/node_man/models.py:954
 msgid "英文插件描述"
 msgstr "English plugin description"
 
-#: apps/node_man/models.py:956
+#: apps/node_man/models.py:955
 msgid "英文使用场景"
 msgstr "English usage scenarios"
 
-#: apps/node_man/models.py:957
+#: apps/node_man/models.py:956
 msgid "所属范围"
 msgstr "Belongs to"
 
-#: apps/node_man/models.py:959
+#: apps/node_man/models.py:958
 msgid "宿主节点类型要求"
 msgstr "Host node type required"
 
-#: apps/node_man/models.py:962 apps/node_man/models.py:2542
+#: apps/node_man/models.py:961 apps/node_man/models.py:2541
 msgid "配置文件名称"
 msgstr "Config file name"
 
-#: apps/node_man/models.py:964
+#: apps/node_man/models.py:963
 msgid "配置文件格式类型"
 msgstr "Config file format type"
 
-#: apps/node_man/models.py:972
+#: apps/node_man/models.py:971
 msgid "是否使用数据库"
 msgstr "Whether to use database"
 
-#: apps/node_man/models.py:973
+#: apps/node_man/models.py:972
 msgid "是否在成功安装agent后自动拉起"
 msgstr ""
 "Whether to automatically pull up the agent after successful installation of "
 "the agent"
 
-#: apps/node_man/models.py:974
+#: apps/node_man/models.py:973
 msgid "是否二进制文件"
 msgstr "Is it binary"
 
-#: apps/node_man/models.py:975
+#: apps/node_man/models.py:974
 msgid "是否启用插件"
 msgstr "Whether plugins are enabled"
 
-#: apps/node_man/models.py:978
+#: apps/node_man/models.py:977
 msgid "部署方式"
 msgstr "Deployment method"
 
-#: apps/node_man/models.py:981
+#: apps/node_man/models.py:980
 msgid "托管类型"
 msgstr "Auto type"
 
-#: apps/node_man/models.py:983
+#: apps/node_man/models.py:982
 msgid "来源系统APP CODE"
 msgstr "Source system APP CODE"
 
-#: apps/node_man/models.py:985
+#: apps/node_man/models.py:984
 msgid "节点管理管控插件信息"
 msgstr "Node management control plugin information"
 
-#: apps/node_man/models.py:988 apps/node_man/models.py:989
+#: apps/node_man/models.py:987 apps/node_man/models.py:988
 msgid "插件信息（GsePluginDesc）"
 msgstr "Plugin Info (GsePluginDesc)"
 
-#: apps/node_man/models.py:1083
+#: apps/node_man/models.py:1082
 msgid "压缩包名"
 msgstr "Compressed package name"
 
-#: apps/node_man/models.py:1084 apps/node_man/models.py:1650
-#: apps/node_man/models.py:2517 apps/node_man/models.py:2545
+#: apps/node_man/models.py:1083 apps/node_man/models.py:1649
+#: apps/node_man/models.py:2516 apps/node_man/models.py:2544
 msgid "版本号"
 msgstr "Version"
 
-#: apps/node_man/models.py:1085
+#: apps/node_man/models.py:1084
 msgid "所属服务"
 msgstr "Owning service"
 
-#: apps/node_man/models.py:1086 apps/node_man/models.py:1289
+#: apps/node_man/models.py:1085 apps/node_man/models.py:1288
 msgid "工程名"
 msgstr "Project name"
 
-#: apps/node_man/models.py:1087
+#: apps/node_man/models.py:1086
 msgid "包大小"
 msgstr "Packet size"
 
-#: apps/node_man/models.py:1088
+#: apps/node_man/models.py:1087
 msgid "包路径"
 msgstr "Package path"
 
-#: apps/node_man/models.py:1089
+#: apps/node_man/models.py:1088
 msgid "md5值"
 msgstr "Md5 value"
 
-#: apps/node_man/models.py:1090
+#: apps/node_man/models.py:1089
 msgid "包更新时间"
 msgstr "Package update time"
 
-#: apps/node_man/models.py:1091
+#: apps/node_man/models.py:1090
 msgid "包创建时间"
 msgstr "Package created at"
 
-#: apps/node_man/models.py:1092
+#: apps/node_man/models.py:1091
 msgid "安装包链接"
 msgstr "Installation package link"
 
-#: apps/node_man/models.py:1094 apps/node_man/models.py:1307
-#: apps/node_man/models.py:2522 apps/node_man/models.py:2550
+#: apps/node_man/models.py:1093 apps/node_man/models.py:1306
+#: apps/node_man/models.py:2521 apps/node_man/models.py:2549
 msgid "系统类型"
 msgstr "System type"
 
-#: apps/node_man/models.py:1101 apps/node_man/models.py:2519
-#: apps/node_man/models.py:2547
+#: apps/node_man/models.py:1100 apps/node_man/models.py:2518
+#: apps/node_man/models.py:2546
 msgid "CPU类型"
 msgstr "CPU type"
 
-#: apps/node_man/models.py:1105 apps/node_man/models.py:1659
+#: apps/node_man/models.py:1104 apps/node_man/models.py:1658
 msgid "是否已经发布版本"
 msgstr "Is a version released"
 
-#: apps/node_man/models.py:1107
+#: apps/node_man/models.py:1106
 msgid "插件是否可用"
 msgstr "Is plugin available"
 
-#: apps/node_man/models.py:1109
+#: apps/node_man/models.py:1108
 msgid "版本日志"
 msgstr "Version log"
 
-#: apps/node_man/models.py:1110
+#: apps/node_man/models.py:1109
 msgid "英文版本日志"
 msgstr "English version log"
 
-#: apps/node_man/models.py:1155
+#: apps/node_man/models.py:1154
 msgid "找不到可导出插件，请确认后重试"
 msgstr "No exportable plugin found, please confirm and try again"
 
-#: apps/node_man/models.py:1231
+#: apps/node_man/models.py:1230
 msgid "插件包不存在，请联系管理员处理"
 msgstr ""
 "The plugin package does not exist, please contact the administrator to deal "
 "with it"
 
-#: apps/node_man/models.py:1269 apps/node_man/models.py:1270
+#: apps/node_man/models.py:1268 apps/node_man/models.py:1269
 msgid "插件包（Packages）"
 msgstr "Packages"
 
-#: apps/node_man/models.py:1288 apps/node_man/models.py:1397
+#: apps/node_man/models.py:1287 apps/node_man/models.py:1396
 msgid "模块名"
 msgstr "Module name"
 
-#: apps/node_man/models.py:1290
+#: apps/node_man/models.py:1289
 msgid "记录对应的插件包ID"
 msgstr "Record the corresponding plugin package ID"
 
-#: apps/node_man/models.py:1292
+#: apps/node_man/models.py:1291
 msgid "安装路径"
 msgstr "Install path"
 
-#: apps/node_man/models.py:1297
+#: apps/node_man/models.py:1296
 msgid "启动命令"
 msgstr "Start command"
 
-#: apps/node_man/models.py:1298
+#: apps/node_man/models.py:1297
 msgid "停止命令"
 msgstr "Stop command"
 
-#: apps/node_man/models.py:1299
+#: apps/node_man/models.py:1298
 msgid "重启命令"
 msgstr "Restart command"
 
-#: apps/node_man/models.py:1300
+#: apps/node_man/models.py:1299
 msgid "重载命令"
 msgstr "Reload command"
 
-#: apps/node_man/models.py:1301
+#: apps/node_man/models.py:1300
 msgid "kill命令"
 msgstr "Kill command"
 
-#: apps/node_man/models.py:1302
+#: apps/node_man/models.py:1301
 msgid "进程版本查询命令"
 msgstr "Process version query command"
 
-#: apps/node_man/models.py:1303
+#: apps/node_man/models.py:1302
 msgid "进程健康检查命令"
 msgstr "Process health check command"
 
-#: apps/node_man/models.py:1304
+#: apps/node_man/models.py:1303
 msgid "调试进程命令"
 msgstr "Debug process command"
 
-#: apps/node_man/models.py:1309
+#: apps/node_man/models.py:1308
 msgid "实际二进制执行文件名"
 msgstr "Actual binary executable filename"
 
-#: apps/node_man/models.py:1310
+#: apps/node_man/models.py:1309
 msgid "插件允许使用的端口范围，格式 1,3,6-8,10-100"
 msgstr "The range of ports allowed by the plugin, in the format 1,3,6-8,10-100"
 
-#: apps/node_man/models.py:1311
+#: apps/node_man/models.py:1310
 msgid "是否需要托管"
 msgstr "Do you need hosting"
 
-#: apps/node_man/models.py:1330
+#: apps/node_man/models.py:1329
 #, python-format
 msgid "无法解析的端口号：%s"
 msgstr "Unresolved port number: %s"
 
-#: apps/node_man/models.py:1335
+#: apps/node_man/models.py:1334
 #, python-format
 msgid "不在合法范围内的端口号：%s"
 msgstr "Port number not in valid range: %s"
 
-#: apps/node_man/models.py:1366 apps/node_man/models.py:1375
+#: apps/node_man/models.py:1365 apps/node_man/models.py:1374
 #, python-format
 msgid "不合法的端口范围定义格式：%s"
 msgstr "Illegal port range definition format: %s"
 
-#: apps/node_man/models.py:1379
+#: apps/node_man/models.py:1378
 #, python-format
 msgid "端口范围字符串解析失败：%s"
 msgstr "Failed to parse port range string: %s"
 
-#: apps/node_man/models.py:1384 apps/node_man/models.py:1385
+#: apps/node_man/models.py:1383 apps/node_man/models.py:1384
 msgid "插件控制表（ProcControl）"
 msgstr "Plugin Control Table (ProcControl)"
 
-#: apps/node_man/models.py:1396
+#: apps/node_man/models.py:1395
 msgid "上传包文件名"
 msgstr "Upload package filename"
 
-#: apps/node_man/models.py:1399
+#: apps/node_man/models.py:1398
 msgid "文件上传的路径名"
 msgstr "File upload pathname"
 
-#: apps/node_man/models.py:1400
+#: apps/node_man/models.py:1399
 msgid "文件大小，单位Byte"
 msgstr "File size, in Bytes"
 
-#: apps/node_man/models.py:1401
+#: apps/node_man/models.py:1400
 msgid "文件MD5"
 msgstr "File MD5"
 
-#: apps/node_man/models.py:1403
+#: apps/node_man/models.py:1402
 msgid "文件上传时间"
 msgstr "File upload time"
 
-#: apps/node_man/models.py:1404
+#: apps/node_man/models.py:1403
 msgid "上传用户名"
 msgstr "Upload Username"
 
-#: apps/node_man/models.py:1405 apps/node_man/models.py:1518
-#: apps/node_man/models.py:1663 apps/node_man/models.py:1755
+#: apps/node_man/models.py:1404 apps/node_man/models.py:1517
+#: apps/node_man/models.py:1662 apps/node_man/models.py:1754
 msgid "来源系统app code"
 msgstr "Source system app code"
 
-#: apps/node_man/models.py:1408
+#: apps/node_man/models.py:1407
 msgid "文件包上传记录"
 msgstr "Package upload log"
 
-#: apps/node_man/models.py:1409
+#: apps/node_man/models.py:1408
 msgid "文件包上传记录表"
 msgstr "Package upload record table"
 
-#: apps/node_man/models.py:1438
+#: apps/node_man/models.py:1437
 #, python-brace-format
 msgid "文件{file_path}不存在，请确认后重试"
 msgstr "The file {file_path} does not exist, please confirm and try again"
 
-#: apps/node_man/models.py:1471
+#: apps/node_man/models.py:1470
 msgid "文件迁移失败，请联系管理员协助处理"
 msgstr "File migration failed, please contact administrator for assistance"
 
-#: apps/node_man/models.py:1495
+#: apps/node_man/models.py:1494
 msgid "任务准备中"
 msgstr "Task preparation"
 
-#: apps/node_man/models.py:1496
+#: apps/node_man/models.py:1495
 msgid "任务进行中"
 msgstr "Task in progress"
 
-#: apps/node_man/models.py:1497
+#: apps/node_man/models.py:1496
 msgid "任务已完成"
 msgstr "Task completed"
 
-#: apps/node_man/models.py:1504
+#: apps/node_man/models.py:1503
 msgid "gse插件"
 msgstr "Gse plugin"
 
-#: apps/node_man/models.py:1508
+#: apps/node_man/models.py:1507
 msgid "下载文件类型"
 msgstr "Download file type"
 
-#: apps/node_man/models.py:1509
+#: apps/node_man/models.py:1508
 msgid "下载查询参数"
 msgstr "Download query parameters"
 
-#: apps/node_man/models.py:1511
+#: apps/node_man/models.py:1510
 msgid "打包后的文件路径"
 msgstr "Packaged file path"
 
-#: apps/node_man/models.py:1513
+#: apps/node_man/models.py:1512
 msgid "任务错误信息"
 msgstr "Task error message"
 
-#: apps/node_man/models.py:1515
+#: apps/node_man/models.py:1514
 msgid "任务创建者"
 msgstr "Task creator"
 
-#: apps/node_man/models.py:1516
+#: apps/node_man/models.py:1515
 msgid "下载任务创建时间"
 msgstr "Download task created at"
 
-#: apps/node_man/models.py:1517
+#: apps/node_man/models.py:1516
 msgid "任务完成时间"
 msgstr "Task completion time"
 
-#: apps/node_man/models.py:1608
+#: apps/node_man/models.py:1607
 #, python-brace-format
 msgid "任务失败: {err_msg}"
 msgstr "Task failed: {err_msg}"
 
-#: apps/node_man/models.py:1624 apps/node_man/models.py:1625
+#: apps/node_man/models.py:1623 apps/node_man/models.py:1624
 msgid "下载记录"
 msgstr "Download log"
 
-#: apps/node_man/models.py:1630 apps/node_man/serializers/plugin_v2.py:257
+#: apps/node_man/models.py:1629 apps/node_man/serializers/plugin_v2.py:257
 msgid "CPU限额"
 msgstr "CPU quota"
 
-#: apps/node_man/models.py:1631 apps/node_man/serializers/plugin_v2.py:258
+#: apps/node_man/models.py:1630 apps/node_man/serializers/plugin_v2.py:258
 msgid "内存限额"
 msgstr "Memory quota"
 
-#: apps/node_man/models.py:1634
+#: apps/node_man/models.py:1633
 msgid "CMDB实例ID"
 msgstr "CMDB instance ID"
 
-#: apps/node_man/models.py:1639 apps/node_man/models.py:1640
+#: apps/node_man/models.py:1638 apps/node_man/models.py:1639
 msgid "插件资源设置"
 msgstr "Plugin Resource Settings"
 
-#: apps/node_man/models.py:1651
+#: apps/node_man/models.py:1650
 msgid "配置模板名"
 msgstr "Config template name"
 
-#: apps/node_man/models.py:1652
+#: apps/node_man/models.py:1651
 msgid "配置模板版本"
 msgstr "Config Template Version"
 
-#: apps/node_man/models.py:1653
+#: apps/node_man/models.py:1652
 msgid "是否主配置"
 msgstr "Is the main configuration"
 
-#: apps/node_man/models.py:1655
+#: apps/node_man/models.py:1654
 msgid "文件格式"
 msgstr "File format"
 
-#: apps/node_man/models.py:1656
+#: apps/node_man/models.py:1655
 msgid "文件在该插件目录中相对路径"
 msgstr "Relative path to file in this plugin directory"
 
-#: apps/node_man/models.py:1657 apps/node_man/models.py:2543
+#: apps/node_man/models.py:1656 apps/node_man/models.py:2542
 msgid "配置内容"
 msgstr "Config content"
 
-#: apps/node_man/models.py:1658
+#: apps/node_man/models.py:1657
 msgid "配置变量"
 msgstr "Config variables"
 
-#: apps/node_man/models.py:1661 apps/node_man/models.py:1753
-#: apps/utils/orm.py:175 pipeline/contrib/periodic_task/models.py:296
+#: apps/node_man/models.py:1660 apps/node_man/models.py:1752
+#: apps/utils/orm.py:175 pipeline/contrib/periodic_task/models.py:367
 #: pipeline/models.py:276 pipeline/models.py:616
 msgid "创建者"
 msgstr "Created by"
 
-#: apps/node_man/models.py:1673
+#: apps/node_man/models.py:1672
 msgid "插件配置文件模板"
 msgstr "Plugin configuration file template"
 
-#: apps/node_man/models.py:1674
+#: apps/node_man/models.py:1673
 msgid "插件配置文件模板表"
 msgstr "Plugin configuration file template table"
 
-#: apps/node_man/models.py:1750
+#: apps/node_man/models.py:1749
 msgid "对应实例记录ID"
 msgstr "Corresponding instance record ID"
 
-#: apps/node_man/models.py:1751
+#: apps/node_man/models.py:1750
 msgid "渲染参数"
 msgstr "Render parameters"
 
-#: apps/node_man/models.py:1752
+#: apps/node_man/models.py:1751
 msgid "渲染参数MD5"
 msgstr "Render parameter MD5"
 
-#: apps/node_man/models.py:1814
+#: apps/node_man/models.py:1813
 msgid "插件配置文件实例"
 msgstr "Plugin config file instance"
 
-#: apps/node_man/models.py:1815
+#: apps/node_man/models.py:1814
 msgid "插件配置文件实例表"
 msgstr "Plugin configuration file instance table"
 
-#: apps/node_man/models.py:1822
+#: apps/node_man/models.py:1821
 msgid "顺序"
 msgstr "Order"
 
-#: apps/node_man/models.py:1823
+#: apps/node_man/models.py:1822
 msgid "步骤ID"
 msgstr "Step ID"
 
-#: apps/node_man/models.py:1824
+#: apps/node_man/models.py:1823
 msgid "步骤类型"
 msgstr "Step type"
 
-#: apps/node_man/models.py:1825
+#: apps/node_man/models.py:1824
 msgid "配置"
 msgstr "Config"
 
-#: apps/node_man/models.py:1826
+#: apps/node_man/models.py:1825
 msgid "参数"
 msgstr "Parameter"
 
-#: apps/node_man/models.py:1842 apps/node_man/models.py:1843
+#: apps/node_man/models.py:1841 apps/node_man/models.py:1842
 msgid "订阅步骤"
 msgstr "Subscribe step"
 
-#: apps/node_man/models.py:1864
+#: apps/node_man/models.py:1863
 msgid "服务"
 msgstr "Service"
 
-#: apps/node_man/models.py:1875
+#: apps/node_man/models.py:1874
 msgid "动态实例（拓扑）"
 msgstr "Dynamic instance (topology)"
 
-#: apps/node_man/models.py:1876
+#: apps/node_man/models.py:1875
 msgid "静态实例"
 msgstr "Static instance"
 
-#: apps/node_man/models.py:1877
+#: apps/node_man/models.py:1876
 msgid "服务模板"
 msgstr "Service template"
 
-#: apps/node_man/models.py:1878
+#: apps/node_man/models.py:1877
 msgid "集群模板"
 msgstr "Cluster template"
 
-#: apps/node_man/models.py:1879
+#: apps/node_man/models.py:1878
 msgid "动态分组"
 msgstr "Dynamic group"
 
-#: apps/node_man/models.py:1890
+#: apps/node_man/models.py:1889
 msgid "一次性订阅"
 msgstr "Once subscription"
 
-#: apps/node_man/models.py:1895
+#: apps/node_man/models.py:1894
 msgid "任务名称"
 msgstr "Task name"
 
-#: apps/node_man/models.py:1897 apps/node_man/models.py:2456
+#: apps/node_man/models.py:1896 apps/node_man/models.py:2455
 msgid "对象类型"
 msgstr "Object type"
 
-#: apps/node_man/models.py:1899
+#: apps/node_man/models.py:1898
 msgid "节点"
 msgstr "Node"
 
-#: apps/node_man/models.py:1900
+#: apps/node_man/models.py:1899
 msgid "订阅任务范围主机属性筛选"
 msgstr "Subscription task scope host attribute filtering"
 
-#: apps/node_man/models.py:1901
+#: apps/node_man/models.py:1900
 msgid "下发的目标机器"
 msgstr "Destination machine issued"
 
-#: apps/node_man/models.py:1908 apps/node_man/serializers/policy.py:147
+#: apps/node_man/models.py:1907 apps/node_man/serializers/policy.py:147
 msgid "订阅类别"
 msgstr "Subscription Category"
 
-#: apps/node_man/models.py:1909 apps/node_man/serializers/plugin.py:213
+#: apps/node_man/models.py:1908 apps/node_man/serializers/plugin.py:213
 #: apps/node_man/serializers/plugin_v2.py:173
 #: apps/node_man/serializers/plugin_v2.py:199
 #: apps/node_man/serializers/plugin_v2.py:256
@@ -5626,182 +5630,181 @@ msgstr "Subscription Category"
 msgid "插件名称"
 msgstr "Plugin name"
 
-#: apps/node_man/models.py:1911 apps/node_man/serializers/plugin_v2.py:204
+#: apps/node_man/models.py:1910 apps/node_man/serializers/plugin_v2.py:204
 msgid "操作信息"
 msgstr "Operation information"
 
-#: apps/node_man/models.py:1913
+#: apps/node_man/models.py:1912
 msgid "父订阅ID"
 msgstr "Parent subscription id"
 
-#: apps/node_man/models.py:2216 apps/node_man/models.py:2217
+#: apps/node_man/models.py:2215 apps/node_man/models.py:2216
 msgid "订阅（Subscription）"
 msgstr "Subscription"
 
-#: apps/node_man/models.py:2231
+#: apps/node_man/models.py:2230
 msgid "执行范围"
 msgstr "Execution scope"
 
-#: apps/node_man/models.py:2232
+#: apps/node_man/models.py:2231
 msgid "不同step执行的动作名称。键值对"
 msgstr "Name of the action performed by different steps. Key-value pair"
 
-#: apps/node_man/models.py:2234
+#: apps/node_man/models.py:2233
 msgid "错误信息"
 msgstr "Error message"
 
-#: apps/node_man/models.py:2235
+#: apps/node_man/models.py:2234
 msgid "是否准备就绪"
 msgstr "Ready"
 
-#: apps/node_man/models.py:2237 apps/node_man/models.py:2278
+#: apps/node_man/models.py:2236 apps/node_man/models.py:2277
 msgid "Pipeline ID"
 msgstr "Pipeline ID"
 
-#: apps/node_man/models.py:2257 apps/node_man/models.py:2258
+#: apps/node_man/models.py:2256 apps/node_man/models.py:2257
 msgid "订阅任务"
 msgstr "Subscribe tasks"
 
-#: apps/node_man/models.py:2276 apps/node_man/models.py:2457
+#: apps/node_man/models.py:2275 apps/node_man/models.py:2456
 msgid "实例信息"
 msgstr "Instance info"
 
-#: apps/node_man/models.py:2277
+#: apps/node_man/models.py:2276
 msgid "步骤信息"
 msgstr "Step info"
 
-#: apps/node_man/models.py:2279
+#: apps/node_man/models.py:2278
 msgid "Start Pipeline ID"
 msgstr "Start Pipeline ID"
 
-#: apps/node_man/models.py:2282
+#: apps/node_man/models.py:2281
 msgid "是否需要清洗临时信息"
 msgstr "Do you need to clean temporary information"
 
-#: apps/node_man/models.py:2283
+#: apps/node_man/models.py:2282
 msgid "是否为实例最新记录"
 msgstr "Is the latest record for the instance"
 
-#: apps/node_man/models.py:2346 apps/node_man/models.py:2370
-#, python-brace-format
+#: apps/node_man/models.py:2345 apps/node_man/models.py:2369
 msgid "步骤ID [{}] 在该订阅配置中不存在"
 msgstr "Step id [{}] does not exist in this subscription configuration"
 
-#: apps/node_man/models.py:2399 apps/node_man/models.py:2400
+#: apps/node_man/models.py:2398 apps/node_man/models.py:2399
 msgid "订阅实例记录"
 msgstr "Subscribe instance records"
 
-#: apps/node_man/models.py:2404
+#: apps/node_man/models.py:2403
 msgid "作业实例ID"
 msgstr "Job instance id"
 
-#: apps/node_man/models.py:2405
+#: apps/node_man/models.py:2404
 msgid "订阅实例ID列表"
 msgstr "Subscription instance ID list"
 
-#: apps/node_man/models.py:2406 pipeline/contrib/statistics/models.py:21
+#: apps/node_man/models.py:2405 pipeline/contrib/statistics/models.py:21
 #: pipeline/contrib/statistics/models.py:37
 msgid "节点ID"
 msgstr "Node ID"
 
-#: apps/node_man/models.py:2407
+#: apps/node_man/models.py:2406
 msgid "作业状态"
 msgstr "Job status"
 
-#: apps/node_man/models.py:2410 apps/node_man/models.py:2411
+#: apps/node_man/models.py:2409 apps/node_man/models.py:2410
 msgid "作业平台ID映射表"
 msgstr "Job platform ID mapping table"
 
-#: apps/node_man/models.py:2415 apps/node_man/models.py:2432
+#: apps/node_man/models.py:2414 apps/node_man/models.py:2431
 msgid "订阅实例ID"
 msgstr "Subscription instance ID"
 
-#: apps/node_man/models.py:2416 apps/node_man/models.py:2437
+#: apps/node_man/models.py:2415 apps/node_man/models.py:2436
 #: pipeline/log/models.py:45
 msgid "日志内容"
 msgstr "Log content"
 
-#: apps/node_man/models.py:2417 pipeline/log/models.py:44
+#: apps/node_man/models.py:2416 pipeline/log/models.py:44
 msgid "日志等级"
 msgstr "Log level"
 
-#: apps/node_man/models.py:2421 apps/node_man/models.py:2422
+#: apps/node_man/models.py:2420 apps/node_man/models.py:2421
 msgid "订阅实例日志"
 msgstr "Subscription instance log"
 
-#: apps/node_man/models.py:2433
+#: apps/node_man/models.py:2432
 msgid "Pipeline原子ID"
 msgstr "Pipeline Atom ID"
 
-#: apps/node_man/models.py:2442 apps/node_man/models.py:2443
+#: apps/node_man/models.py:2441 apps/node_man/models.py:2442
 msgid "订阅实例状态表"
 msgstr "Subscription instance status table"
 
-#: apps/node_man/models.py:2454 apps/node_man/models.py:2498
+#: apps/node_man/models.py:2453 apps/node_man/models.py:2497
 msgid "事件类型"
 msgstr "Event type"
 
-#: apps/node_man/models.py:2455
+#: apps/node_man/models.py:2454
 msgid "动作"
 msgstr "Action"
 
-#: apps/node_man/models.py:2461 apps/node_man/models.py:2462
+#: apps/node_man/models.py:2460 apps/node_man/models.py:2461
 msgid "CMDB事件记录"
 msgstr "CMDB event log"
 
-#: apps/node_man/models.py:2470
+#: apps/node_man/models.py:2469
 msgid "PipelineID"
 msgstr "PipelineID"
 
-#: apps/node_man/models.py:2471
+#: apps/node_man/models.py:2470
 msgid "Pipeline拓扑树"
 msgstr "Pipeline topology tree"
 
-#: apps/node_man/models.py:2497
+#: apps/node_man/models.py:2496
 msgid "游标"
 msgstr "Cursor"
 
-#: apps/node_man/models.py:2499
+#: apps/node_man/models.py:2498
 msgid "资源"
 msgstr "Resource"
 
-#: apps/node_man/models.py:2500
+#: apps/node_man/models.py:2499
 msgid "事件详情"
 msgstr "Event Details"
 
-#: apps/node_man/models.py:2504 apps/node_man/models.py:2505
+#: apps/node_man/models.py:2503 apps/node_man/models.py:2504
 msgid "CMDB资源监听事件"
 msgstr "CMDB resource listener event"
 
-#: apps/node_man/models.py:2515 apps/node_man/models.py:2581
+#: apps/node_man/models.py:2514 apps/node_man/models.py:2580
 #, fuzzy
 #| msgid "推送环境变量文件"
 msgid "环境变量值"
 msgstr "Push environment file"
 
-#: apps/node_man/models.py:2516 apps/node_man/models.py:2544
+#: apps/node_man/models.py:2515 apps/node_man/models.py:2543
 #, fuzzy
 #| msgid "Agent配置"
 msgid "Agent名称"
 msgstr "Agent Configuration"
 
-#: apps/node_man/models.py:2530 apps/node_man/models.py:2531
+#: apps/node_man/models.py:2529 apps/node_man/models.py:2530
 msgid "安装包环境变量"
 msgstr "Installation package environment variables"
 
-#: apps/node_man/models.py:2566 apps/node_man/models.py:2567
+#: apps/node_man/models.py:2565 apps/node_man/models.py:2566
 msgid "安装包模板表"
 msgstr "Installation package template table"
 
-#: apps/node_man/models.py:2578
+#: apps/node_man/models.py:2577
 msgid "附加配置规则名称"
 msgstr "Additional configuration rule name"
 
-#: apps/node_man/models.py:2580
+#: apps/node_man/models.py:2579
 msgid "灰度条件"
 msgstr "Gray condition"
 
-#: apps/node_man/models.py:2584 apps/node_man/models.py:2585
+#: apps/node_man/models.py:2583 apps/node_man/models.py:2584
 msgid "GSE 附加配置"
 msgstr "GSE additional configuration"
 
@@ -5939,7 +5942,7 @@ msgid "订阅任务ID"
 msgstr "Subscription task ID"
 
 #: apps/node_man/serializers/host.py:25
-#: pipeline/contrib/periodic_task/models.py:299
+#: pipeline/contrib/periodic_task/models.py:370
 msgid "额外信息"
 msgstr "Extra info"
 
@@ -6302,7 +6305,6 @@ msgstr ""
 "both be empty"
 
 #: apps/node_man/serializers/plugin.py:262
-#, python-brace-format
 msgid "插件{}已被禁用，不能执行相关操作"
 msgstr "Plugin {} has been disabled and cannot perform related operations"
 
@@ -6467,16 +6469,21 @@ msgid "{node_name} 失败"
 msgstr "{node_name} failed"
 
 #: apps/node_man/tools/job.py:72
-#, python-brace-format
 msgid "{}"
 msgstr "{}"
+
+#: apps/node_man/views/ap.py:377
+#, fuzzy, python-brace-format
+#| msgid "该接入点正在被使用"
+msgid "该接入点正在被「管控区域」 {cloud_names} 使用"
+msgstr "This access point is in use"
 
 #: apps/node_man/views/meta.py:124
 msgid "您没有权限修改任务配置"
 msgstr "You do not have permission to modify task configuration"
 
 #: apps/node_man/views/permission.py:57 common/api/modules/bk_node.py:19
-#: config/default.py:337
+#: config/default.py:340
 msgid "节点管理"
 msgstr "NodeMan"
 
@@ -6590,231 +6597,231 @@ msgstr "Is it read from configuration file"
 msgid "模块配置"
 msgstr "Module configuration"
 
-#: pipeline/contrib/external_plugins/models/source.py:24
+#: pipeline/contrib/external_plugins/models/source.py:34
 msgid "文件托管仓库链接"
 msgstr "File hosting repository link"
 
-#: pipeline/contrib/external_plugins/models/source.py:25
+#: pipeline/contrib/external_plugins/models/source.py:35
 msgid "分支名"
 msgstr "Branch name"
 
-#: pipeline/contrib/external_plugins/models/source.py:47
+#: pipeline/contrib/external_plugins/models/source.py:57
 msgid "对象存储服务地址"
 msgstr "Object storage service address"
 
-#: pipeline/contrib/external_plugins/models/source.py:48
+#: pipeline/contrib/external_plugins/models/source.py:58
 msgid "bucket 名"
 msgstr "Bucket name"
 
-#: pipeline/contrib/external_plugins/models/source.py:49
+#: pipeline/contrib/external_plugins/models/source.py:59
 msgid "access key"
 msgstr "Access key"
 
-#: pipeline/contrib/external_plugins/models/source.py:50
+#: pipeline/contrib/external_plugins/models/source.py:60
 msgid "secret key"
 msgstr "Secret key"
 
-#: pipeline/contrib/external_plugins/models/source.py:78
+#: pipeline/contrib/external_plugins/models/source.py:88
 msgid "文件系统路径"
 msgstr "Filesystem path"
 
-#: pipeline/contrib/periodic_task/models.py:35
+#: pipeline/contrib/periodic_task/models.py:40
 msgid "Days"
 msgstr "Days"
 
-#: pipeline/contrib/periodic_task/models.py:36
+#: pipeline/contrib/periodic_task/models.py:41
 msgid "Hours"
 msgstr "Hours"
 
-#: pipeline/contrib/periodic_task/models.py:37
+#: pipeline/contrib/periodic_task/models.py:42
 msgid "Minutes"
 msgstr "Minutes"
 
-#: pipeline/contrib/periodic_task/models.py:38
+#: pipeline/contrib/periodic_task/models.py:43
 msgid "Seconds"
 msgstr "Seconds"
 
-#: pipeline/contrib/periodic_task/models.py:39
+#: pipeline/contrib/periodic_task/models.py:44
 msgid "Microseconds"
 msgstr "Microseconds"
 
-#: pipeline/contrib/periodic_task/models.py:45
+#: pipeline/contrib/periodic_task/models.py:50
 msgid "every"
 msgstr "Every"
 
-#: pipeline/contrib/periodic_task/models.py:46
+#: pipeline/contrib/periodic_task/models.py:52
 msgid "period"
 msgstr "Period"
 
-#: pipeline/contrib/periodic_task/models.py:49
-#: pipeline/contrib/periodic_task/models.py:159
+#: pipeline/contrib/periodic_task/models.py:58
+#: pipeline/contrib/periodic_task/models.py:188
 msgid "interval"
 msgstr "Interval"
 
-#: pipeline/contrib/periodic_task/models.py:50
+#: pipeline/contrib/periodic_task/models.py:59
 msgid "intervals"
 msgstr "Intervals"
 
-#: pipeline/contrib/periodic_task/models.py:70
+#: pipeline/contrib/periodic_task/models.py:79
 #, python-brace-format
 msgid "every {0.period_singular}"
 msgstr "Every {0.period_singular}"
 
-#: pipeline/contrib/periodic_task/models.py:71
+#: pipeline/contrib/periodic_task/models.py:80
 #, python-brace-format
 msgid "every {0.every:d} {0.period}"
 msgstr "Every {0.every:d} {0.period}"
 
-#: pipeline/contrib/periodic_task/models.py:84
+#: pipeline/contrib/periodic_task/models.py:93
 msgid "minute"
 msgstr "Minute"
 
-#: pipeline/contrib/periodic_task/models.py:85
+#: pipeline/contrib/periodic_task/models.py:94
 msgid "hour"
 msgstr "Hour"
 
-#: pipeline/contrib/periodic_task/models.py:86
+#: pipeline/contrib/periodic_task/models.py:96
 msgid "day of week"
 msgstr "Day of week"
 
-#: pipeline/contrib/periodic_task/models.py:87
+#: pipeline/contrib/periodic_task/models.py:101
 msgid "day of month"
 msgstr "Day of month"
 
-#: pipeline/contrib/periodic_task/models.py:88
+#: pipeline/contrib/periodic_task/models.py:106
 msgid "month of year"
 msgstr "Month of year"
 
-#: pipeline/contrib/periodic_task/models.py:93
+#: pipeline/contrib/periodic_task/models.py:114
 msgid "crontabs"
 msgstr "Crontabs"
 
-#: pipeline/contrib/periodic_task/models.py:156
+#: pipeline/contrib/periodic_task/models.py:178
 msgid "name"
 msgstr "Name"
 
-#: pipeline/contrib/periodic_task/models.py:156
+#: pipeline/contrib/periodic_task/models.py:181
 msgid "Useful description"
 msgstr "Useful description"
 
-#: pipeline/contrib/periodic_task/models.py:157
+#: pipeline/contrib/periodic_task/models.py:183
 msgid "task name"
 msgstr "Task name"
 
-#: pipeline/contrib/periodic_task/models.py:167
+#: pipeline/contrib/periodic_task/models.py:197
 msgid "Use one of interval/crontab"
 msgstr "Use one of interval/crontab"
 
-#: pipeline/contrib/periodic_task/models.py:169
+#: pipeline/contrib/periodic_task/models.py:200
 msgid "Arguments"
 msgstr "Arguments"
 
-#: pipeline/contrib/periodic_task/models.py:169
+#: pipeline/contrib/periodic_task/models.py:203
 msgid "JSON encoded positional arguments"
 msgstr "JSON encoded positional arguments"
 
-#: pipeline/contrib/periodic_task/models.py:171
+#: pipeline/contrib/periodic_task/models.py:206
 msgid "Keyword arguments"
 msgstr "Keyword arguments"
 
-#: pipeline/contrib/periodic_task/models.py:171
+#: pipeline/contrib/periodic_task/models.py:209
 msgid "JSON encoded keyword arguments"
 msgstr "JSON encoded keyword arguments"
 
-#: pipeline/contrib/periodic_task/models.py:174
+#: pipeline/contrib/periodic_task/models.py:212
 msgid "queue"
 msgstr "Queue"
 
-#: pipeline/contrib/periodic_task/models.py:174
+#: pipeline/contrib/periodic_task/models.py:217
 msgid "Queue defined in CELERY_QUEUES"
 msgstr "Queue defined in CELERY_QUEUES"
 
-#: pipeline/contrib/periodic_task/models.py:176
+#: pipeline/contrib/periodic_task/models.py:220
 msgid "exchange"
 msgstr "Exchange"
 
-#: pipeline/contrib/periodic_task/models.py:177
+#: pipeline/contrib/periodic_task/models.py:227
 msgid "routing key"
 msgstr "Routing key"
 
-#: pipeline/contrib/periodic_task/models.py:178
+#: pipeline/contrib/periodic_task/models.py:234
 msgid "expires"
 msgstr "Expires"
 
-#: pipeline/contrib/periodic_task/models.py:179
+#: pipeline/contrib/periodic_task/models.py:239
 msgid "enabled"
 msgstr "Enabled"
 
-#: pipeline/contrib/periodic_task/models.py:183
+#: pipeline/contrib/periodic_task/models.py:254
 msgid "description"
 msgstr "Description"
 
-#: pipeline/contrib/periodic_task/models.py:189
+#: pipeline/contrib/periodic_task/models.py:260
 msgid "djcelery periodic task"
 msgstr "Djcelery periodic task"
 
-#: pipeline/contrib/periodic_task/models.py:190
+#: pipeline/contrib/periodic_task/models.py:261
 msgid "djcelery periodic tasks"
 msgstr "Djcelery periodic tasks"
 
-#: pipeline/contrib/periodic_task/models.py:278
+#: pipeline/contrib/periodic_task/models.py:349
 msgid "周期任务名称"
 msgstr "Period task name"
 
-#: pipeline/contrib/periodic_task/models.py:283
+#: pipeline/contrib/periodic_task/models.py:354
 msgid "周期任务对应的模板"
 msgstr "Template corresponding to periodic task"
 
-#: pipeline/contrib/periodic_task/models.py:287
+#: pipeline/contrib/periodic_task/models.py:358
 msgid "调度策略"
 msgstr "Scheduling Policy"
 
-#: pipeline/contrib/periodic_task/models.py:289
+#: pipeline/contrib/periodic_task/models.py:360
 msgid "celery 周期任务实例"
 msgstr "Celery periodic task instance"
 
-#: pipeline/contrib/periodic_task/models.py:292
+#: pipeline/contrib/periodic_task/models.py:363
 msgid "用于创建流程实例的结构数据"
 msgstr "Structure data used to create process instances"
 
-#: pipeline/contrib/periodic_task/models.py:294
+#: pipeline/contrib/periodic_task/models.py:365
 msgid "执行次数"
 msgstr "Executions"
 
-#: pipeline/contrib/periodic_task/models.py:295
+#: pipeline/contrib/periodic_task/models.py:366
 msgid "上次运行时间"
 msgstr "Last Run"
 
-#: pipeline/contrib/periodic_task/models.py:297
-#: pipeline/contrib/periodic_task/models.py:395
+#: pipeline/contrib/periodic_task/models.py:368
+#: pipeline/contrib/periodic_task/models.py:466
 #: pipeline/engine/models/core.py:594
 msgid "流程优先级"
 msgstr "Priority"
 
-#: pipeline/contrib/periodic_task/models.py:298
-#: pipeline/contrib/periodic_task/models.py:396
+#: pipeline/contrib/periodic_task/models.py:369
+#: pipeline/contrib/periodic_task/models.py:467
 #: pipeline/engine/models/core.py:595
 msgid "流程使用的队列名"
 msgstr "Queue name"
 
-#: pipeline/contrib/periodic_task/models.py:382
+#: pipeline/contrib/periodic_task/models.py:453
 msgid "周期任务"
 msgstr "Periodic task"
 
-#: pipeline/contrib/periodic_task/models.py:387
+#: pipeline/contrib/periodic_task/models.py:458
 msgid "Pipeline 实例"
 msgstr "Pipeline instance"
 
-#: pipeline/contrib/periodic_task/models.py:392 pipeline/log/models.py:46
+#: pipeline/contrib/periodic_task/models.py:463 pipeline/log/models.py:46
 msgid "异常信息"
 msgstr "Exception information"
 
-#: pipeline/contrib/periodic_task/models.py:393
-#: pipeline/engine/models/core.py:883 pipeline/engine/models/core.py:990
+#: pipeline/contrib/periodic_task/models.py:464
+#: pipeline/engine/models/core.py:889 pipeline/engine/models/core.py:996
 msgid "开始时间"
 msgstr "Start time"
 
-#: pipeline/contrib/periodic_task/models.py:394
+#: pipeline/contrib/periodic_task/models.py:465
 msgid "是否启动成功"
 msgstr "Launch OK"
 
@@ -6857,12 +6864,12 @@ msgid "标准插件执行耗时(s)"
 msgstr "Time-consuming standard plug (s)"
 
 #: pipeline/contrib/statistics/models.py:43
-#: pipeline/core/flow/activity/service_activity.py:32
+#: pipeline/core/flow/activity/service_activity.py:37
 msgid "是否执行成功"
 msgstr "Whether success"
 
-#: pipeline/contrib/statistics/models.py:44 pipeline/engine/models/core.py:880
-#: pipeline/engine/models/core.py:993
+#: pipeline/contrib/statistics/models.py:44 pipeline/engine/models/core.py:886
+#: pipeline/engine/models/core.py:999
 msgid "是否跳过"
 msgstr "Whether to skip"
 
@@ -6900,16 +6907,16 @@ msgstr "Reference data of pipeline template"
 msgid "Pipeline实例引用数据"
 msgstr "Reference data of pipeline instance"
 
-#: pipeline/core/flow/activity/service_activity.py:32
+#: pipeline/core/flow/activity/service_activity.py:37
 msgid "执行结果"
 msgstr "Results"
 
-#: pipeline/core/flow/activity/service_activity.py:33
-#: pipeline/engine/models/core.py:879 pipeline/engine/models/core.py:992
+#: pipeline/core/flow/activity/service_activity.py:38
+#: pipeline/engine/models/core.py:885 pipeline/engine/models/core.py:998
 msgid "循环次数"
 msgstr "Cycles"
 
-#: pipeline/core/flow/activity/service_activity.py:33
+#: pipeline/core/flow/activity/service_activity.py:38
 msgid "循环执行次数"
 msgstr "Cycles"
 
@@ -6943,9 +6950,9 @@ msgstr ""
 "requests are rejected."
 
 #: pipeline/engine/models/core.py:53 pipeline/engine/models/core.py:616
-#: pipeline/engine/models/core.py:932 pipeline/engine/models/core.py:988
-#: pipeline/engine/models/core.py:1140 pipeline/engine/models/core.py:1172
-#: pipeline/engine/models/core.py:1198 pipeline/engine/models/core.py:1229
+#: pipeline/engine/models/core.py:938 pipeline/engine/models/core.py:994
+#: pipeline/engine/models/core.py:1146 pipeline/engine/models/core.py:1178
+#: pipeline/engine/models/core.py:1204 pipeline/engine/models/core.py:1235
 #: pipeline/log/models.py:42
 msgid "ID"
 msgstr "ID"
@@ -7006,122 +7013,122 @@ msgstr "ID offspring"
 msgid "距离"
 msgstr "Distance"
 
-#: pipeline/engine/models/core.py:875 pipeline/engine/models/core.py:923
-#: pipeline/engine/models/core.py:1047 pipeline/engine/models/core.py:1230
+#: pipeline/engine/models/core.py:881 pipeline/engine/models/core.py:929
+#: pipeline/engine/models/core.py:1053 pipeline/engine/models/core.py:1236
 #: pipeline/log/models.py:49
 msgid "节点 ID"
 msgstr "Node ID"
 
-#: pipeline/engine/models/core.py:877
+#: pipeline/engine/models/core.py:883
 msgid "节点名称"
 msgstr "Node Name"
 
-#: pipeline/engine/models/core.py:878
+#: pipeline/engine/models/core.py:884
 msgid "重试次数"
 msgstr "Number of retries"
 
-#: pipeline/engine/models/core.py:881
+#: pipeline/engine/models/core.py:887
 msgid "是否出错后自动忽略"
 msgstr "Whether after an error automatically ignored"
 
-#: pipeline/engine/models/core.py:884
+#: pipeline/engine/models/core.py:890
 msgid "归档时间"
 msgstr "Archive Time"
 
-#: pipeline/engine/models/core.py:885
+#: pipeline/engine/models/core.py:891
 msgid "版本"
 msgstr "Version"
 
-#: pipeline/engine/models/core.py:886
+#: pipeline/engine/models/core.py:892
 msgid "上次状态更新的时间"
 msgstr "Last time status updates"
 
-#: pipeline/engine/models/core.py:924 pipeline/engine/models/core.py:933
+#: pipeline/engine/models/core.py:930 pipeline/engine/models/core.py:939
 msgid "输入数据"
 msgstr "Input data"
 
-#: pipeline/engine/models/core.py:925 pipeline/engine/models/core.py:934
+#: pipeline/engine/models/core.py:931 pipeline/engine/models/core.py:940
 msgid "输出数据"
 msgstr "Output Data"
 
-#: pipeline/engine/models/core.py:926 pipeline/engine/models/core.py:935
+#: pipeline/engine/models/core.py:932 pipeline/engine/models/core.py:941
 msgid "异常数据"
 msgstr "Abnormal data"
 
-#: pipeline/engine/models/core.py:941
+#: pipeline/engine/models/core.py:947
 msgid "自增ID"
 msgstr "Increment ID"
 
-#: pipeline/engine/models/core.py:942
+#: pipeline/engine/models/core.py:948
 msgid "回调服务ID"
 msgstr "Callback Service ID"
 
-#: pipeline/engine/models/core.py:943 pipeline/engine/models/core.py:1052
+#: pipeline/engine/models/core.py:949 pipeline/engine/models/core.py:1058
 msgid "回调数据"
 msgstr "Callback data"
 
-#: pipeline/engine/models/core.py:989
+#: pipeline/engine/models/core.py:995
 msgid "节点 id"
 msgstr "Node id"
 
-#: pipeline/engine/models/core.py:991 pipeline/models.py:620
+#: pipeline/engine/models/core.py:997 pipeline/models.py:620
 msgid "结束时间"
 msgstr "End Time"
 
-#: pipeline/engine/models/core.py:1046
+#: pipeline/engine/models/core.py:1052
 msgid "ID 节点ID+version"
 msgstr "ID Node ID + version"
 
-#: pipeline/engine/models/core.py:1048
+#: pipeline/engine/models/core.py:1054
 msgid "Pipeline 进程 ID"
 msgstr "Pipeline Process ID"
 
-#: pipeline/engine/models/core.py:1049
+#: pipeline/engine/models/core.py:1055
 msgid "被调度次数"
 msgstr "Scheduling times"
 
-#: pipeline/engine/models/core.py:1050
+#: pipeline/engine/models/core.py:1056
 msgid "是否是回调型调度"
 msgstr "Whether it is scheduling a callback type"
 
-#: pipeline/engine/models/core.py:1051
+#: pipeline/engine/models/core.py:1057
 msgid "是否支持多次回调"
 msgstr "Whether to support multiple callbacks"
 
-#: pipeline/engine/models/core.py:1053
+#: pipeline/engine/models/core.py:1059
 msgid "待调度服务"
 msgstr "Be-scheduled services"
 
-#: pipeline/engine/models/core.py:1054
+#: pipeline/engine/models/core.py:1060
 msgid "是否已完成"
 msgstr "Completed or not"
 
-#: pipeline/engine/models/core.py:1055
+#: pipeline/engine/models/core.py:1061
 msgid "Activity 的版本"
 msgstr "Activity version"
 
-#: pipeline/engine/models/core.py:1056
+#: pipeline/engine/models/core.py:1062
 msgid "是否正在被调度"
 msgstr "Whether it is scheduled"
 
-#: pipeline/engine/models/core.py:1141
+#: pipeline/engine/models/core.py:1147
 msgid "子流程 ID"
 msgstr "Sub-process ID"
 
-#: pipeline/engine/models/core.py:1142
+#: pipeline/engine/models/core.py:1148
 msgid "对应的进程 ID"
 msgstr "The corresponding process ID"
 
-#: pipeline/engine/models/core.py:1173
+#: pipeline/engine/models/core.py:1179
 msgid "pipeline 进程 ID"
 msgstr "Pipeline process ID"
 
-#: pipeline/engine/models/core.py:1174 pipeline/engine/models/core.py:1200
-#: pipeline/engine/models/core.py:1231
+#: pipeline/engine/models/core.py:1180 pipeline/engine/models/core.py:1206
+#: pipeline/engine/models/core.py:1237
 msgid "celery 任务 ID"
 msgstr "Celery task ID"
 
-#: pipeline/engine/models/core.py:1199
+#: pipeline/engine/models/core.py:1205
 msgid "schedule ID"
 msgstr "Schedule ID"
 
